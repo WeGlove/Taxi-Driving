@@ -1,0 +1,18 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 27, in script
+    captain "Ahoi Leichtmatrose, ich muss zur Hafenkneipe, yarr!"
+Exception: Sayer 'captain' is not defined.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 27, in script
+    captain "Ahoi Leichtmatrose, ich muss zur Hafenkneipe, yarr!"
+  File "renpy/ast.py", line 671, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "renpy/ast.py", line 574, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'captain' is not defined.
+

@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 46: end of line expected.
+    you "Yarr, Captain, Nach der Ebbe kommt immer die Flut.":
+                                                            ^
+
+Ren'Py Version: Ren'Py 7.4.0.1167
+Sat Feb 27 16:15:35 2021
