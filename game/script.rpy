@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define you = Character("Eileen")
+define you = Character("Du")
 
 
 # The game starts here.
@@ -13,8 +13,8 @@ label start:
 
     you "You are a taxi driver."
     
-    call captain
-    call clown
+    call captain from _call_captain
+    call clown from _call_clown
     
     you "Hi"
    

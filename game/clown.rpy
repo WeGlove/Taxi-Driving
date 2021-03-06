@@ -11,10 +11,25 @@ label clown:
             clown "Ich bin vielleicht ein Clown, aber ich hätte lieber meine Karrier wäre kein Witz."
         "Bekommen Sie da keine rote Nase?":
             clown "Haben wir ein Problem?"
-            clown "Es ist Samstag abend und bei meinem letzten Auftritt, hab ich den Leuten Ausversehen statt Wasser, {i}Alkohol{/i} statt Wasser ins Gesicht gespritzt."
+            clown "Es ist Samstagabend und bei meinem letzten Auftritt, hab ich den Zuschauern ausversehen statt Wasser, {i}Alkohol{/i} ins Gesicht gespritzt."
             clown "Kleinkindergeburtstage kann ich glaube ich für die nächste Zeit vergessen."
             clown "Fahren Sie einfach los."
-    clown "Verdient man eigenlich gut als Taxifahrer."
+    clown "Verdient man eigentlich gut als Taxifahrer?"
+    menu:
+        "Kommt auf die Kundschaft an":
+            clown "Verständlich. Heutzutage, dreht ja jeder am Rad."
+            clown "Naja, was erwarte ich auch."
+        "Ich komm kaum über die Runden":
+            clown "Immerhin bin ich nicht der einzige."
+            clown "Wir Wracks müssen ja zusammenhalten."
+        "Eigentlich schon":
+            clown "Wenn mir die Sonne auch mal so aus dem Arsch scheinen Würde."
+            clown "Das würden sich die Leute dann auch eher ansehen wollen."
+        "Sind die lachenden Gesichter der Kunden nicht der beste Verdienst":
+            clown "Nein. Essen, Wasser, ein Platz zum Schlafen der nicht in der Gasse neben dem letzten Gig ist, {b}das{/b} ist ein guter Verdienst."
+    you "Hier wären wir"
+    clown "Abhängige Antwort hier einfügen."
+            
     
     return
     
