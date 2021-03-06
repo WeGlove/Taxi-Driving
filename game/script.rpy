@@ -13,8 +13,8 @@ label start:
 
     you "You are a taxi driver."
     
-    jump captain
-    jump clown
+    call captain
+    call clown
     
     you "Hi"
    
