@@ -1,18 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 27, in script
-    captain "Ahoi Leichtmatrose, ich muss zur Hafenkneipe, yarr!"
-Exception: Sayer 'captain' is not defined.
+  File "game/captain.rpy", line 14, in script
+    captain "Aye, bei dem Wetter haben wir heute Abend Eisregen. Zieh die Segel ein [Mood based beförderung]"
+KeyError: u'Mood based bef\xf6rderung'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 27, in script
-    captain "Ahoi Leichtmatrose, ich muss zur Hafenkneipe, yarr!"
-  File "renpy/ast.py", line 671, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "renpy/ast.py", line 574, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'captain' is not defined.
+  File "game/captain.rpy", line 14, in script
+    captain "Aye, bei dem Wetter haben wir heute Abend Eisregen. Zieh die Segel ein [Mood based beförderung]"
+  File "C:\Users\johan\Downloads\renpy-7.4.2-sdk/renpy/ast.py", line 715, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\johan\Downloads\renpy-7.4.2-sdk/renpy/exports.py", line 1384, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\johan\Downloads\renpy-7.4.2-sdk/renpy/character.py", line 1164, in __call__
+    what = what_pattern.replace("[what]", sub(what, translate=True))
+  File "C:\Users\johan\Downloads\renpy-7.4.2-sdk/renpy/character.py", line 1153, in sub
+    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
+  File "C:\Users\johan\Downloads\renpy-7.4.2-sdk/renpy/substitutions.py", line 270, in substitute
+    s = formatter.vformat(s, (), kwargs)
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 563, in vformat
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 585, in _vformat
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 646, in get_field
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 605, in get_value
+KeyError: u'Mood based bef\xf6rderung'
 
+Windows-10-10.0.19041
+Ren'Py 7.4.2.1292
+Taxi Driving 1.0
+Sat Mar  6 16:29:45 2021

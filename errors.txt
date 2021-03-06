@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 46: end of line expected.
-    you "Yarr, Captain, Nach der Ebbe kommt immer die Flut.":
-                                                            ^
+File "game/bobby.rpy", line 6: Menu does not contain any choices.
+    menu:
+         ^
 
-Ren'Py Version: Ren'Py 7.4.0.1167
-Sat Feb 27 16:15:35 2021
+File "game/bobby.rpy", line 11: Menu does not contain any choices.
+    menu:   
+            ^
+
+File "game/bobby.rpy", line 16: Menu does not contain any choices.
+    menu: 
+          ^
+
+Ren'Py Version: Ren'Py 7.4.2.1292
+Sat Mar  6 16:28:30 2021
