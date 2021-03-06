@@ -15,15 +15,15 @@ label bfj:
     menu:
         "Mhm.":
             "Yee!"
-        "Der {i}Philosophie{\i}? Das erklärt wenigstens Ihren Aufzug!":
+        "Der {i}Philosophie{/i}? Das erklärt wenigstens Ihren Aufzug!":
             "Yee!"
         "Was haben Sie denn so geschaffen?":
             "Yee!"
-    bfj "Die Jungen Leute von heute wissen auch nicht mehr wie man arbeitet, die sind {i} alle{\i} faul!"
+    bfj "Die Jungen Leute von heute wissen auch nicht mehr wie man arbeitet, die sind {i} alle{/i} faul!"
     menu:
         "Mhm.":
             "Yee!"
-        "Wie bitte? {b} ICH ZEIG IHNEN GLEICH MAL WER HIER FAUL IST HERR {i}PROFESSOR{\i}!":
+        "Wie bitte? {b} ICH ZEIG IHNEN GLEICH MAL WER HIER FAUL IST HERR {i}PROFESSOR{/i}!{/b}":
             "Yee!"
         "Ja, es gibt schon echt viele Leute heutzutage.":
             "Yee!"
