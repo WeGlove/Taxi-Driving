@@ -28,21 +28,34 @@ label dance:
             jump dance_honest
     label dance_rude:
         menu:
-            you "Wie lange wollen Sie eigentlich noch einer Vergangenheit nachstellen, die Sie nie hatten?":
+            "Wie lange wollen Sie eigentlich noch einer Vergangenheit nachstellen, die Sie nie hatten?":
                 dance "Der Dancter ist nicht nur {i}shocked{/i}, er ist {b}ULTRA SHOCKED{/b}"
                 dance "Disco wird {i}für immer{/i} die {i}Steps{/i} auf den {i}Floor{i} bringen"
                 dance "Genau das werd ich jetzt zeigen gehen. Time to, {i}step it up{/i}!"
                 jump dance_out
-            you "Na gut, vielleicht kann Disco manchmal doch interssant sein":
+            "Na gut, vielleicht kann Disco manchmal doch interssant sein":
                 dance "Na also, so wie Dance steppt, steppt die Welt."
                 dance "Komm doch mal vorbei!"
                 jump dance_out
-            you "Wenn Sie das sagen":
+            "Wenn Sie das sagen":
                 dance "Der Danceter {i}tellt{/i} es wie es ist!"
     label dance_honest:
         menu:
-            "Naja, Tanzfertigkeit ist ja schon mal was. Werden Sie doch Tanzlehrer"
-            "Wie wär's denn mit einer anderen Musikrichtung?"
+            "Naja, Tanzfertigkeit ist ja schon mal was. Werden Sie doch Tanzlehrer":
+                dance "Vielleicht hast du recht. Ich leg noch eine mal ein heißes Solo aufs Parkett und dann zeig ich anderen wie man es tut."
+                dance "Danke, Mann!"
+                jump dance_out
+            "Wie wär's denn mit einer anderen Musikrichtung?":
+                jump dance_music
+                
+    label dance_music:
+        dance "Eine neue Msikrichtung, huh?"
+        dance "An was hast du denn gedacht?"
+        menu:
+            "Rap":
+                dance "Das ist es. Das war es mit Dance Dancington. Es ist Zeit für Rap Rapington, Bruder!"
+            "Klassik":
+                dance "Das ist es. Das war es mit Dance Dancington. Es schlägt die Stund der Geburt, des ehrenwerten Class Classingtons. Ich ziehe den Hut!"
     label dance_out:
         "Dance Dancington steigt aus."
     return

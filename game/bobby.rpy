@@ -28,6 +28,7 @@ label bobby:
             "Yee"
         "Sie wissen, dass es strafbar ist Taxifahrern Drogen zu verkaufen?":
             "Yee"
+    return
 
     
 
