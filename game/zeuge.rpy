@@ -7,7 +7,8 @@ label zeuge:
          "Ich bin nicht religiös. Der Tag ist aber trotzdem schön.":
             zeuge "Aber jeder Tag wird doch durch Religion schöner!"
          "Ja, preiset den mächtigen Erlöser! Er und seine Erdbeeren werden uns befreien!":
-            "Sie rümpft die Nase, fasst sich dann aber schnell wieder."zeuge "Erdbeerianismus ist von gestern."
+            "Sie rümpft die Nase, fasst sich dann aber schnell wieder."
+            zeuge "Erdbeerianismus ist von gestern."
          "Bleib mir bloß mit Religion weg":
             zeuge "Gerade Leute wie Sie könnten Religion gut gebrauchen!"
     zeuge "Möchten Sie nicht von meiner Religion hören?"
@@ -33,9 +34,26 @@ label zeuge:
                         "Sie schaut enttäuscht und sagt den Rest der Fahrt beleidigt kein Wort mehr"
 
              "Das klingt interessant. Ich mag Katzen, wo kann ich mich anmelden?":
-                "Ihre Augen leuchten und lächelnd antwortet sie:" zeuge "Kommen Sie doch mit in den Tempel"
+                "Ihre Augen leuchten und lächelnd antwortet sie:" 
+                zeuge "Kommen Sie doch mit in den Tempel"
              "Bloß nicht! Da geh ich ja lieber zum Kult der Großen AI!":
                 "Sie schaut enttäuscht und sagt den Rest der Fahrt beleidigt kein Wort mehr"
+    else:
+        zeuge "Ich eine Versucherin? Du solltest dich mal ansehen mit deine Erdbeeren!"
+        menu:
+            "Wie denn auch nicht? Der Erdbeerianismus ist deinem Was-auch-immer völlig überlegen!":
+                zeuge"Jeder vom Erdbeerianismus hat doch nur noch Früchte im Hirn. Du könntest mich nicht mal versuchen, wenn ich es wollte!"
+                menu:
+                    "Sie küssen":
+                        "Nachdem du dich einige Zeit später von ihrem Schlag erholt hast, fragst du dich, warum du dachtest, dass das eine gute Idee wäre."
+                    "Anhalten und sie rauswerfen":
+                        "Klar ich wollte eh nicht in deinem dreckigen Erdbeertaxi fahren!"
+                    "Stoisch nach vorne auf die Straße schauen und sie ab jetzt ignorieren":
+                        "Sie versucht weiter dich anzustacheln, gibt aber nach einer Weile schmollend Ruhe"
+            "Wie bitte? Bin ich etwa in dein Taxi eingestiegen und habe angefangen von Religion zu faseln?":
+                "Sie versucht etwas zu erwiedern, stoppt dann aber. Sie schmollt für den Rest der Fahrt auf der Rückbank"
+    
+            
 
 
 
