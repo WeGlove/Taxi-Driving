@@ -1,4 +1,4 @@
-﻿define gameshow = Character("Co-Host")
+﻿define gameshow = Character("Host")
 
 label gameshow:
     "Eine Frau in Make-Up und einem heruntergekommenen Anzug steigt in das Taxi."
