@@ -5,29 +5,32 @@ label bobby:
     bobby "Weißt du warum man mich nennt Bobby die Ratte?"
     menu:
         "Ähhm... , nein?": 
-            "Yee"
-        "Mit den Augen rollen. \"Können Sie mir einfach sagen wohin Sie wollen?\"":
-            "Yee"
+            bobby "Weil ich will zur Bank"
+            "Du verstehst nicht was Ratten und Bänke miteinander zu tun haben, aber fährst einfach mal los"
+        "Mit den Augen rollen.":
+            you "Können Sie mir einfach sagen wohin Sie wollen?"
+            bobby"Weißt du warum man mich nennt Bobby die Ratte, weil ich will zur Bank"
+            "Du verstehst nicht was Ratten und Bänke miteinander zu tun haben"
         "Weil Sie eine Diebesgilde in Flüderich leiten?":
-            "Yee"
-    bobby "Man nennt mich Bobby die Ratte, weil ich weiß wann ein Taxifahrer unter Drogen steht"
+            bobby"Weißt du warum man mich nennt Bobby die Ratte? Weil ich nicht mag insider Jokes!"
+    bobby "Weißt du warum man mich nennt Bobby die Ratte, weil ich weiß wann ein Taxifahrer unter Drogen steht"
     menu:   
         "Ich nehme meinen Job sehr ernst, ich nehme keine Drogen!":
-            "Yee"
+            bobby   "Weißt du warum man mich nennt Bobby die Ratte? Weil in diese Welt keiner aushält ohne ein paar Drogen!"
 
         "Lachen":
-            "Yee"
+            bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich weiß, dass du unter Drogen stehen aber es keinem verraten werde"
         "Da sie dann ja wissen, das ich grade unter keinem Einfluss stehe, können Sie mir dann sagen wo ich welche herbekomme?":
-            "Yee"
+            bobby"Weißt du warum man mich nennt Bobby die Ratte? Weil ich wusste dass du interessiert sein würdest !"
     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich dich kann versorgen mit ein bisschen was!"
     menu: 
         "Gerne!":
-            "Yee"
+            bobby"Weißt du warum man mich nennt Bobby die Ratte? Weil das kosten 50 Cryptobucks"
 
         "Nein, danke!":
-            "Yee"
+            bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich auch anderen meine Ware verkaufen kann"
         "Sie wissen, dass es strafbar ist Taxifahrern Drogen zu verkaufen?":
-            "Yee"
+            bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil mich keiner nennt Bobby die Ratte und du nicht können mich anzeigen!"
     return
 
     

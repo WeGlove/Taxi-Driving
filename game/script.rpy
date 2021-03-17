@@ -14,7 +14,7 @@ label start:
     you "You are a taxi driver."
 
     call maffay from _call_maffay
-    call zeuge from _call_zeuge
+   
 
 
    
