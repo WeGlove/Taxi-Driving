@@ -15,6 +15,7 @@ label start:
    
     call captain from _call_captain
     call clown from _call_clown
+    call dance from _call_dance
     call bobby from _call_bobby
     call bfj from _call_bfj
     
