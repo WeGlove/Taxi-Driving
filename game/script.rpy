@@ -13,11 +13,9 @@ label start:
 
     you "You are a taxi driver."
 
+    call baby from _call_baby
+    call mime from _call_mime
     call maffay from _call_maffay
-   
-
-
-   
     call gameshow from _call_gameshow
     call zeuge from _call_zeuge
     call captain from _call_captain
