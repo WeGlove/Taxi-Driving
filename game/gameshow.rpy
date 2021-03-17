@@ -11,7 +11,7 @@ label gameshow:
             gameshow "Überall um uns herum sind Scheinwerfer und solches Qualitätspolster bekommen Sie nur in unserem Studio!"
         "Ich fühle mich gut, ich habe mich lange auf meinen Auftritt vorbereitet":
             gameshow "Na, das wollen wir doch hören."
-        "..., was?"
+        "..., was?":
             "Die Frau lacht"
             gameshow "Ja, so ist das meine Damen und Herren, diese Gameshow lässt Sie sprachlos!"
     gameshow "Hier also die Regeln für das heutige Spiel."
@@ -26,7 +26,7 @@ label gameshow:
     gameshow "Kommen wir zu ersten Frage, keine Angst wir starten ganz einfach."
     gameshow "Was ist 11*11"
     menu:
-        "A) 121:
+        "A) 121":
             "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
         "B) 112":
             "Netter Versuch, aber leider falsch!"
