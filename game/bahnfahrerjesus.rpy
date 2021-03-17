@@ -24,7 +24,7 @@ label bfj:
         "Mhm.":
             "Yee!"
         "Wie bitte? {b} ICH ZEIG IHNEN GLEICH MAL WER HIER FAUL IST HERR {i}PROFESSOR{/i}!{/b}":
-            "Yee!"
+            "Für einen Mann seines Alters ist der Bahnfahrerjesus ziemlich rüstig, wie du schnell bemerkst. Du wachst auf und ein paar {b}insert Teile oder Accesoires here{\b} fehlen an deinem Taxi!"
         "Ja, es gibt schon echt viele Leute heutzutage.":
             "Yee!"
 
