@@ -1,6 +1,6 @@
-﻿define mime = Character("mime")
+﻿define mime = Character("Pantomime")
 
 label mime:
-    "Ein clown steigt in den Taxi."
+    mime "Eine Pantomime öffnet die Tür zu deinem Wagen."
     
 
