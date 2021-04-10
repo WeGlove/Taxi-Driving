@@ -47,7 +47,7 @@ label zeuge:
                     "Sie küssen":
                         "Nachdem du dich einige Zeit später von ihrem Schlag erholt hast, fragst du dich, warum du dachtest, dass das eine gute Idee wäre."
                     "Anhalten und sie rauswerfen":
-                        "Klar ich wollte eh nicht in deinem dreckigen Erdbeertaxi fahren!"
+                        zeuge "Klar ich wollte eh nicht in deinem dreckigen Erdbeertaxi fahren!"
                     "Stoisch nach vorne auf die Straße schauen und sie ab jetzt ignorieren":
                         "Sie versucht weiter dich anzustacheln, gibt aber nach einer Weile schmollend Ruhe"
             "Wie bitte? Bin ich etwa in dein Taxi eingestiegen und habe angefangen von Religion zu faseln?":
