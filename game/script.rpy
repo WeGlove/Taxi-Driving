@@ -9,9 +9,9 @@ define you = Character("Du")
 # The game starts here.
 
 label start:
+    $money = 0
 
-
-    you "You are a taxi driver."
+    you "Du bist ein Taxifahrer."
 
     call baby from _call_baby
     call mime from _call_mime
@@ -24,7 +24,7 @@ label start:
     call bobby from _call_bobby
     call bfj from _call_bfj
     
-    you "Hi"
+    you "Glückwunsch! Du hast heute [money] CRP verdient!"
    
 
     # This ends the game.

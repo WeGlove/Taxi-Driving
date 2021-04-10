@@ -7,7 +7,7 @@ label mime:
         "Mimen ihr die Tür aufzumachen":
             "Die Pantomime nickt und lächelt dankbar"
             "Sie steigt ein."
-        "Ihr Sagen, dass Sie geäflligst einsteigen soll":
+        "Ihr Sagen, dass Sie gefälligst einsteigen soll":
             "Die Pantomime, rüttelt noch ein paar mal an einem wohl unischtbaren Schloss bevor sie aufgibt, mit den Shultern zuckt, und geht."
             return
     you "Wo soll's denn hingehen?"
@@ -22,7 +22,7 @@ label mime:
             "Sie nickt und lächelt nervös"
     menu:
         "Das ist ein Risiko. Ich darf meinen Blick eigentlich nicht von der Straße nehmen":
-            "Die Pantomieme sieht für einen Moment geschlagen aus, bevor sie ihren Kopf schüttelt und und lächelt."
+            "Die Pantomieme sieht für einen Moment geschlagen aus, bevor sie ihren Kopf schüttelt und lächelt."
             "Offenbar hat sie eine Idee. Die Pantomime tippt dir Links und Rechts auf die Schultern."
             you "Sie geben mir so an wo ich abbiegen soll?"
             "Die Pantomime nickt eifrig."

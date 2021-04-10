@@ -23,17 +23,19 @@ label gameshow:
            "Fantstisch, fangen wir an!"
         "Nein":
            "Fantstisch, fangen wir an!"
+        "Entschuldigung?":
+            "Fantstisch, fangen wir an!"
     gameshow "Kommen wir zu ersten Frage, keine Angst wir starten ganz einfach."
     gameshow "Was ist 11*11"
     menu:
         "A) 121":
-            "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
+             gameshow "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
         "B) 112":
-            "Netter Versuch, aber leider falsch!"
+            gameshow "Netter Versuch, aber leider falsch!"
         "C) Ein Stern zwischen zwei Elfern":
-            "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
+            gameshow "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
         "D) Eine Zahl":
-            "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
+            gameshow "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
     
     gameshow "Kommen wir zur zweiten und schwierigsten Frage..."
     gameshow "Wenn Sie eine Hit Gameshow leiten würden, aber in ihrer Lebensituation komplett verzweifelt sind, würden Sie:"
@@ -48,7 +50,7 @@ label gameshow:
             gameshow "Tut mir Leid der Preis bleibt für Sie heute aus."
         "C) Zum Rathaus fahren, um ihre Gameshow den Mitgliedern zu präsentieren":
             gameshow "Haha! Nur Mut zum Risiko, so muss das sein!"
-            gameshow "Den Geldpresi haben Sie sich verdient!"
+            gameshow "Den Geldpreis haben Sie sich verdient!"
         "D) Zum Rathaus fahren um einen Anschlag zu verüben":
             gameshow "Es tut mir Leid meine Damen und Herren ich habe grade Wort aus der Regie bekommen das wir das geplante Programm unterbrechen müssen!"
             gameshow "Damit fällt leider auch der Geldpresis weg der für Sie ausgelegt war, es tut uns Leid!"

@@ -14,7 +14,7 @@ label baby:
                     menu:
                         "Jetzt reichts mir aber...":
                             "Du steigst aus dem Wagen auf und öffnest die Tür zu dem Mann."
-                            "Deinsizleder zerkratzend schleifst du ihn aus deinem Wagen"
+                            "Dein Sitzleder zerkratzend schleifst du ihn aus deinem Wagen"
                             you "Und komm ja nicht wieder!"
                             "Du fährst ohne ihn weiter, sein Gehuele hörst du aber noch am nächsten Block."
                             return
@@ -25,7 +25,7 @@ label baby:
     baby "Papa?"
     menu:
         "Nein, ich bin nicht dein Papa":
-            "Wo, Papa? Warum Papa gegangen?"
+            baby "Wo, Papa? Warum Papa gegangen?"
             menu:
                 "Wo hast du ihn denn das letzte mal gesehen?":
                     baby "10 Jahre. Papa holen Ziga-...Ziga-"
@@ -34,31 +34,37 @@ label baby:
                     menu: 
                         "Hey, hey, es wird alles gut, du bist doch schon groß und stark!":
                             "Er hört auf zu weinen und fragt schluchzent:"
-                            baby "Wirklich"
-                            you "Ja schau dich doch an, du bist doch schon groß un kräftigt und brauchst keinen mehr der auf dich aufpasst."
-                            "Ihr seid inzwischen am SPielplatz angekommen"
+                            baby "Wirklich?"
+                            you "Ja schau dich doch an, du bist doch schon groß un kräftig und brauchst keinen mehr, der auf dich aufpasst."
+                            "Ihr seid inzwischen am Spielplatz angekommen"
                             baby "Danke."
                             "Er gibt dir das Geld und zwei Schokotaler bevor er aussteigt."
                         "Ich weiß, ich weiß, ich kenn das Gefühl":
                             "Der Mann beginnt noch mehr zu weinen!"
                             baby "{i}Wo, unsere Papa!?!{\i}"
-                            "Ihr seid inesichen am Spielplatz angekommen"
+                            "Ihr seid inzwischen am Spielplatz angekommen"
                             "Noch immer schluchzend steigt der Mann aus dem Wagen aus."
                 "Hier warum spielst du nicht mit meinem Jojo?":
                     baby "Yay!"
                     "Der Mann beginnt mit dem Jojo zu spielen. Er ist so vertieft darin das die Fahrt ohne weitere Umstände verläuft."
                     you "Da wären wir, der Spielplatz."
                     baby "Danke."
-                    "Der Mann gibt dir zusätzlich zum Geld einen Schokotaler"
+                    "Der Mann gibt dir zusätzlich zum Geld einen Schokotaler nimmt aber das Jojo mit."
         "Ja der bin ich. Ich bin dein Papa":
             baby "Papa!"
             "Er grinst dich an"
-            baby "Will Loli"
-            you "Tut mir Leidich hab keinen Süßkram"
-            "Der Mann bricht in Geheul aus."
-            baby "Aber, ich will Loli!"
-            "Für den Rest der fahrt belästigt dich der Mann und fordert seinen Loli ein, den du ihm nicht geben kannst"
-            baby "Du, gar nicht Papa!"
-            "Sind seine letzen Worte bevor er wütend dein Auto verlässt."
+            baby "Will Lolli"
+            menu:
+                "Tut mir leid ich hab keinen Süßkram":
+                    "Der Mann bricht in Geheul aus."
+                    baby "Aber, ich will Lolli!"
+                    "Für den Rest der fahrt belästigt dich der Mann und fordert seinen Lolli ein, den du ihm nicht geben kannst"
+                    baby "Du, gar nicht Papa!"
+                    "Sind seine letzen Worte bevor er wütend dein Auto verlässt."
+                "Ok, ok lass uns kurz anhalten, ich kauf dir einen Lolli":
+                    baby "Ja, Lollis!"
+                    "Du gehst und kaufst ein paar Lollis für den Mann."
+                    "Als du sie ihm gibst scheint er überglücklich zu sein und ist für den Rest der Fahrt zu frieden."
+                    "Als er austeigt gibt er dir dein Geld und einen Schokotaler."
     return
 

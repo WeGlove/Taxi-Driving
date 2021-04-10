@@ -2,7 +2,7 @@
 
 label dance:
     "Ein Mann in Discokleidung steigt ein"
-    dance "Bitte zur Discothek 90. Wenn du dich beeilenkönntest {i}babygirl{/i}? Der Danceter ist {i}late{/i}."
+    dance "Bitte zur Discothek 90. Wenn du dich beeilen könntest {i}babygirl{/i}? Der Danceter ist {i}late{/i}."
     dance "Go, go, step it up!"
     
     you "Sind Sie beruflich unterwegs?"
@@ -53,9 +53,9 @@ label dance:
         dance "An was hast du denn gedacht?"
         menu:
             "Rap":
-                dance "Das ist es. Das war es mit Dance Dancington. Es ist Zeit für Rap Rapington, Bruder!"
+                dance "Das ist es. Das war es mit Dance Dancington. Es ist Zeit für Rap Rapington, Brother!"
             "Klassik":
-                dance "Das ist es. Das war es mit Dance Dancington. Es schlägt die Stund der Geburt, des ehrenwerten Class Classingtons. Ich ziehe den Hut!"
+                dance "Das ist es. Das war es mit Dance Dancington. Es schlägt die Stund der Geburt, des ehrenwerten Class Classingtons. Cahpeau, Monsieur!"
     label dance_out:
         "Dance Dancington steigt aus."
     return
