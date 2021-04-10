@@ -1,7 +1,7 @@
 ﻿define bobby = Character("bobby")
 
 label bobby:
-    "Ein kleinwüchsiger Mann mit langem Bart steit steigt in dein Taxi. Er schaut dich aus schmalen Augen an und fragt dich mit schwerem Akzent:"
+    "Ein kleinwüchsiger Mann mit langem Bart steigt in dein Taxi. Er schaut dich aus schmalen Augen an und fragt dich mit schwerem Akzent:"
     bobby "Weißt du warum man mich nennt Bobby die Ratte?"
     menu:
         "Ähhm... , nein?": 
@@ -31,7 +31,7 @@ label bobby:
                     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich nicht feilschen. 50 CRP oder keine Drogen"
                 "Ihm das Geld geben":
                     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es eine Freude ist mit dir Geschäfte zu machen"
-                "Kann ich auch ein Abo abschließen?"
+                "Kann ich auch ein Abo abschließen?":
                     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es das gibt natürlich kostet nur 150 CRP im Monat für eine Drogenflatrate. Ich das kann nur empfehlen"
         "Nein, danke!":
             bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich auch anderen meine Ware verkaufen kann"
@@ -41,9 +41,9 @@ label bobby:
                 "Auf dem ins Taxi integrierten Telefon die Polizei anrufen":
                     bobby"Weißt du warum man mich nicht nennt Bobby die Ratte? Weil ich jetzt einen Abgang mache"
                     "Er springt aus dem fahrenden Auto. Natürlich ohne zu zahlen"
-                "Anhalten und ihn rauswerfen"
-                    "Unter protest hälst du an und wirfst ihn aus dem Auto."
-                "Stöhnen, ihn ignorieren und ihn zur Bank fahren"
+                "Anhalten und ihn rauswerfen":
+                    "Unter Protest hälst du an und wirfst ihn aus dem Auto."
+                "Stöhnen, ihn ignorieren und ihn zur Bank fahren":
                     "Er ist auch still. Der Weg restliche Weg zur Bank verläuft reibungslos"
     return
 
