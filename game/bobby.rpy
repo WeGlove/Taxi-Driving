@@ -26,11 +26,25 @@ label bobby:
     menu: 
         "Gerne!":
             bobby"Weißt du warum man mich nennt Bobby die Ratte? Weil das kosten 50 Cryptobucks"
-
+            menu:
+                "Das ist zu teuer, geht das auch noch billiger?":
+                    bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich nicht feilschen. 50 CRP oder keine Drogen"
+                "Ihm das Geld geben":
+                    bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es eine Freude ist mit dir Geschäfte zu machen"
+                "Kann ich auch ein Abo abschließen?"
+                    bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es das gibt natürlich kostet nur 150 CRP im Monat für eine Drogenflatrate. Ich das kann nur empfehlen"
         "Nein, danke!":
             bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich auch anderen meine Ware verkaufen kann"
         "Sie wissen, dass es strafbar ist Taxifahrern Drogen zu verkaufen?":
             bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil mich keiner nennt Bobby die Ratte und du nicht können mich anzeigen!"
+            menu: 
+                "Auf dem ins Taxi integrierten Telefon die Polizei anrufen":
+                    bobby"Weißt du warum man mich nicht nennt Bobby die Ratte? Weil ich jetzt einen Abgang mache"
+                    "Er springt aus dem fahrenden Auto. Natürlich ohne zu zahlen"
+                "Anhalten und ihn rauswerfen"
+                    "Unter protest hälst du an und wirfst ihn aus dem Auto."
+                "Stöhnen, ihn ignorieren und ihn zur Bank fahren"
+                    "Er ist auch still. Der Weg restliche Weg zur Bank verläuft reibungslos"
     return
 
     
