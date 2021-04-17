@@ -1,6 +1,7 @@
 ﻿define clown = Character("Clown")
 
 label clown:
+    "[current_passenger_stats]"
     "Ein Clown steigt in dein Taxi. Er wirkt niedergeschlagen."
     clown "Zum Stripclub Soleil, bitte."
     menu:

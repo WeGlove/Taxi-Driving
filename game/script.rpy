@@ -43,6 +43,7 @@ label start:
             call bobby from _call_bobby
         elif current_passenger == "bfj":
             call bfj from _call_bfj
+        "Du hast [current_passenger_stats[paid]] verdient!"
         $ money += current_passenger_stats["paid"]
         jump gameloop
     label out:
