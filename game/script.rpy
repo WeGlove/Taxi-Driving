@@ -21,7 +21,7 @@ label start:
         if len(passengers) == 0:
             jump out
         $ current_passenger = renpy.random.choice(passengers)
-        $ current_passenger_stats = {"id": current_passenger, "paid": 0, "status": {}}
+        $ current_passenger_stats = {"id": current_passenger, "paid": base_fare, "status": {}}
         $ passengers.remove(current_passenger)
         if current_passenger == "baby":
             call baby from _call_baby
@@ -35,6 +35,8 @@ label start:
             call zeuge from _call_zeuge
         elif current_passenger == "captain":
             call captain from _call_captain
+            if current_passenger_stats["status"]["storytime"] and len(passengers) > 0:
+                $ passengers.remove(renpy.random.choice(passengers))
         elif current_passenger == "clown":
             call clown from _call_clown
         elif current_passenger == "dance":

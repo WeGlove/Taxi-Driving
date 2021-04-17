@@ -1,7 +1,6 @@
 ﻿define clown = Character("Clown")
 
 label clown:
-    "[current_passenger_stats]"
     "Ein Clown steigt in dein Taxi. Er wirkt niedergeschlagen."
     clown "Zum Stripclub Soleil, bitte."
     menu:
@@ -15,8 +14,9 @@ label clown:
             menu:
                 "Du":
                     clown "Vielleicht, aber immerhin bin ich ein Witz mit 20 CRP."
-                    clown "20 CRP von denen du jetzt nichts sehen wirst."
+                    clown "[base_fare] CRP von denen du jetzt nichts sehen wirst."
                     "Der Clown steigt aus deinem Taxi ohne zu bezahlen."
+                    $current_passenger_stats["paid"] = 0
                     return
                 "Was ist gelb und fährt auf der Straße":
                     clown "Ich weiß es nicht."
@@ -24,6 +24,7 @@ label clown:
                     "Der Clown fängt an zu lachen"
                     clown "Wow, danke. Den werd ich mir merken"
                     clown "Der ist tasächlich besser als die Witze die ich normalerweise erzähle."
+                    $current_passenger_stats["paid"] += base_fare / 4
                 "Klopf, klopf":
                     clown "Wer ist da?"
                     you "Mag mich"
@@ -32,12 +33,14 @@ label clown:
                     "Dem Clown schießen die Tränen in die Augen und er fängt an zu schreien"
                     clown "ICH WEIß, ICH WEIß ES DOCH. MEINE MUTTER HATTE RECHT, ICH HÄTTE WEITER WIRTSCHAFT STUDIEREN SOLLEN..."
                     "Der Clown flüchtet sich aus deinem Wagen, aber nicht ohne dir etwas Wasser aus einer Plastikblume ins Gesicht zu spritzen"
+                    $current_passenger_stats["paid"] = 0
                     return
         "Bekommen Sie da keine rote Nase?":
             clown "Haben wir ein Problem?"
             clown "Es ist Samstagabend und bei meinem letzten Auftritt, hab ich den Zuschauern ausversehen statt Wasser, {i}Alkohol{/i} ins Gesicht gespritzt."
             clown "Kleinkindergeburtstage kann ich glaube ich für die nächste Zeit vergessen."
             clown "Fahren Sie einfach los."
+            $current_passenger_stats["paid"] -= base_fare / 4
     clown "Verdient man eigentlich gut als Taxifahrer?"
     menu:
         "Kommt auf die Kundschaft an":
@@ -46,11 +49,13 @@ label clown:
         "Ich komm kaum über die Runden":
             clown "Immerhin bin ich nicht der einzige."
             clown "Wir Wracks müssen ja zusammenhalten."
+            $current_passenger_stats["paid"] += base_fare / 4
         "Eigentlich schon":
             clown "Wenn mir die Sonne auch mal so aus dem Arsch scheinen Würde."
             clown "Das würden sich die Leute dann auch eher ansehen wollen."
         "Sind die lachenden Gesichter der Kunden nicht der beste Verdienst":
             clown "Nein. Essen, Wasser, ein Platz zum Schlafen der nicht in der Gasse neben dem letzten Gig ist, {b}das{/b} ist ein guter Verdienst."
+            $current_passenger_stats["paid"] -= base_fare / 4
     you "Hier wären wir"
             
     

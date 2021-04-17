@@ -17,6 +17,7 @@ label baby:
                             "Dein Sitzleder zerkratzend schleifst du ihn aus deinem Wagen"
                             you "Und komm ja nicht wieder!"
                             "Du fährst ohne ihn weiter, sein Gehuele hörst du aber noch am nächsten Block."
+                            $current_passenger_stats["paid"] = - base_fare/4
                             return
                         "Bei allem was heilig ist, hör bitte auf ich fahr dich ja schon":
                             "Der Mann grinst zurfrieden."
@@ -39,17 +40,20 @@ label baby:
                             "Ihr seid inzwischen am Spielplatz angekommen"
                             baby "Danke."
                             "Er gibt dir das Geld und zwei Schokotaler bevor er aussteigt."
+                            $current_passenger_stats["paid"] += base_fare / 2
                         "Ich weiß, ich weiß, ich kenn das Gefühl":
                             "Der Mann beginnt noch mehr zu weinen!"
                             baby "{i}Wo, unsere Papa!?!{\i}"
                             "Ihr seid inzwischen am Spielplatz angekommen"
                             "Noch immer schluchzend steigt der Mann aus dem Wagen aus."
+                            $current_passenger_stats["paid"] -= base_fare / 4
                 "Hier warum spielst du nicht mit meinem Jojo?":
                     baby "Yay!"
                     "Der Mann beginnt mit dem Jojo zu spielen. Er ist so vertieft darin das die Fahrt ohne weitere Umstände verläuft."
                     you "Da wären wir, der Spielplatz."
                     baby "Danke."
                     "Der Mann gibt dir zusätzlich zum Geld einen Schokotaler nimmt aber das Jojo mit."
+                    $current_passenger_stats["paid"] += base_fare / 4
         "Ja der bin ich. Ich bin dein Papa":
             baby "Papa!"
             "Er grinst dich an"
@@ -61,6 +65,7 @@ label baby:
                     "Für den Rest der fahrt belästigt dich der Mann und fordert seinen Lolli ein, den du ihm nicht geben kannst"
                     baby "Du, gar nicht Papa!"
                     "Sind seine letzen Worte bevor er wütend dein Auto verlässt."
+                    $current_passenger_stats["paid"] -= base_fare / 4
                 "Ok, ok lass uns kurz anhalten, ich kauf dir einen Lolli":
                     baby "Ja, Lollis!"
                     "Du gehst und kaufst ein paar Lollis für den Mann."

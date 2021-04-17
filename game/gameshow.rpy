@@ -30,12 +30,15 @@ label gameshow:
     menu:
         "A) 121":
              gameshow "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
+             $current_passenger_stats["paid"] += base_fare / 4
         "B) 112":
             gameshow "Netter Versuch, aber leider falsch!"
         "C) Ein Stern zwischen zwei Elfern":
             gameshow "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
+            $current_passenger_stats["paid"] += base_fare / 4
         "D) Eine Zahl":
             gameshow "Korrekt! Herzlichen Glückwunsch, damit haben sie sich den ersten von zwei Geldpreisen verdient"
+            $current_passenger_stats["paid"] += base_fare / 4
     
     gameshow "Kommen wir zur zweiten und schwierigsten Frage..."
     gameshow "Wenn Sie eine Hit Gameshow leiten würden, aber in ihrer Lebensituation komplett verzweifelt sind, würden Sie:"
@@ -44,6 +47,7 @@ label gameshow:
             gameshow "Nun, meine Damen und Herren dann müssen die Quoten ja grauenvoll sein"
             "Sie zwinkert in die Luft"
             gameshow "Aber korrekt, den zweiten Geldpreis haben sie sich wirklich verdient"
+            $current_passenger_stats["paid"] += base_fare / 4
         "B) Zum nächsten Supermarkt fahren, um sich Alkoholische Getränke zu kaufen":
             gameshow "Nein..., welcher Gameshowhost trinkt denn bei der Arbeit?"
             "Sie schaut mit einem vielsagenden Blick in eine Richtung in der nichts ist."
@@ -51,6 +55,7 @@ label gameshow:
         "C) Zum Rathaus fahren, um ihre Gameshow den Mitgliedern zu präsentieren":
             gameshow "Haha! Nur Mut zum Risiko, so muss das sein!"
             gameshow "Den Geldpreis haben Sie sich verdient!"
+            $current_passenger_stats["paid"] += base_fare / 4
         "D) Zum Rathaus fahren um einen Anschlag zu verüben":
             gameshow "Es tut mir Leid meine Damen und Herren ich habe grade Wort aus der Regie bekommen das wir das geplante Programm unterbrechen müssen!"
             gameshow "Damit fällt leider auch der Geldpresis weg der für Sie ausgelegt war, es tut uns Leid!"
