@@ -1,6 +1,7 @@
 ﻿define captain = Character("Captain")
 
 label captain:
+    $current_passenger_stats["status"]["storytime"] = False
     "Ein Mann mit Kotletten, Augenklappe, Hakenhand und gestreiftem Pulli steigt in dein Taxi."
     captain "Ahoi Leichtmatrose, ich muss zur Hafenkneipe, yarr!"
     menu:
@@ -31,6 +32,7 @@ label captain:
             captain "Aber just in dem Moment als ich die Harpune feuern wollte hörten wir Sirenen und ein Schiff erschien aus dem Nebel."
             captain "Die Küstenwache hat mir danach die Lizenz zum Fischen auf Grund von Verstößen gegen die Menschenrechte entzogen..."
             "Nachdem Der Captain seine Geschichte beendet hat wart ihr schon eine gute halbe Stunde auf dem Kneipenparplatz, wodurch du neinen nächsten Kunden verpasst."
+            $current_passenger_stats["status"]["storytime"] = True
         "Nein, ich kann die See nicht ausstehen":
             captain "Yarr, du bist genauso salzig wie die See..."
         "Nein danke, ich muss mich aufs Fahren konzentrieren":
