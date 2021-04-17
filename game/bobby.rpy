@@ -1,4 +1,4 @@
-﻿define bobby = Character("bobby")
+﻿define bobby = Character("Bobby")
 
 label bobby:
     $current_passenger_stats["paid"] = base_fare

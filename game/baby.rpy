@@ -8,7 +8,7 @@ label baby:
             "Der Mann beginnt infernalisch zu heulen und sich auf die Sitze zu werfen."
             menu:
                 "Ok, ok, du kannst ja schon mit fahren, aber sei leise":
-                    "Der Mann grinst zurfrieden."
+                    "Der Mann grinst zufrieden."
                 "Jetzt auch noch das, NEIN, RAUS HIER!!":
                     "Der Mann verstärkt sein Geheule und beginnt gegen deinen Sitz zu treten."
                     menu:

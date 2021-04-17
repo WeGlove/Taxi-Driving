@@ -32,7 +32,7 @@ label mime:
             "Die Fahrt verläuft ohne weitere Schweirgikeiten und ihr kommt an der von der Pantomime gewünschten Stelle an"
             $current_passenger_stats["paid"] += base_fare / 2
         "Na gut, das könnte funktionieren":
-            "Die Pantomime strahl dich an."
+            "Die Pantomime strahlt dich an."
             "Du fährst los und die Pantomime lotst dich durch die Straßen, wobei du ihrer gemimten Lenkradbewegung folgst."
             "Du erhältst ein paar Strafpunkte des Verkhrsamts fürs Abiegen ohne bzw. mit zu spätem Blinker, aber ihr kommt wohlbehalten an"
             $current_passenger_stats["paid"] -= base_fare / 4

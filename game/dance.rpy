@@ -21,7 +21,7 @@ label dance:
             jump dance_out
         "Ich habe kein besonderes Interesse. Nach einer Weile ist der ganze Disco Zug für mich abgefharen":
             dance "Ich bin {i}schocked{/i}!"
-            dance "Naja, eigenltich..."
+            dance "Naja, eigentlich..."
             "*er seuftzt*"
             dance "Sie haben ja recht. Der Discohype ist schon lange um."
             dance "Aber was soll ich auch machen. Meine Dancemoves sind doch alles was ich hab..."

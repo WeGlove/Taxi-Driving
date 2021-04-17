@@ -2,7 +2,7 @@
 $current_passenger_stats["paid"] = base_fare
 label maffay:
     "Eine Frau mit Dreadlocks steigt in dein Taxi."
-    maffay "Alter ich bin grade so high, fahr mich einfach irgendwo hin"
+    maffay "Alter, ich bin grade so high, fahr mich einfach irgendwo hin"
     menu:
         "Dich weigern sie zu fahren":
             maffay "Alter, ich bezahl dich auch man. Hier ich hab Geld dabei"
@@ -52,7 +52,7 @@ label maffay:
                                     $waterprice = 0.1 *base_fare
                                     you "Das kostet [waterprice] CRP!"
                                     "Murrend gibt sie dir [waterprice] Cryptobucks"
-                                    $current_passenger_stats["paid"] += 0.5*base_fare
+                                    $current_passenger_stats["paid"] += 0.1*base_fare
                         
             "Nein, leider nicht":
                 maffay "Schade"
