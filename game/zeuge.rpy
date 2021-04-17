@@ -1,6 +1,8 @@
 ﻿define zeuge = Character("Chantelle")
 
 label zeuge:
+    $current_passenger_stats["paid"] = base_fare
+    $current_passenger_stats["status"]= {"conversion": False}
     "Eine junge Frau steigt in dein Taxi. Sie streicht sich die Haare aus dem Gesicht und möchte zum örtlichen Tempel gebracht werden"
     zeuge "Ein wunderschöner Tag zum Beten finden Sie nicht?"
     menu:
@@ -11,6 +13,7 @@ label zeuge:
             zeuge "Erdbeerianismus ist von gestern."
          "Bleib mir bloß mit Religion weg":
             zeuge "Gerade Leute wie Sie könnten Religion gut gebrauchen!"
+            $current_passenger_stats["paid"] -= 0.1 * base_fare
     zeuge "Möchten Sie nicht von meiner Religion hören?"
     menu:
          "Nein, danke!":
@@ -19,8 +22,10 @@ label zeuge:
          "Ja warum nicht!":
             "Ihre Augen leuchten auf und sie beginnt begeistert zu reden"
             $not_strawberry = True
+            $current_passenger_stats["paid"] += 0.25 * base_fare
          "Beleidige nicht mich und mein unbändiges Vertrauen in die Erdbeeren, Versucherin!":
             "Sie spuckt auf der Stelle aus." 
+            $current_passenger_stats["paid"] += -0.75 * base_fare
             $not_strawberry = False
     if not_strawberry:
         "Also, ich bin von den Whiskasianeren und wir glauben, dass die Katzen uns irgendwann erretten werden!"
@@ -30,12 +35,16 @@ label zeuge:
                 menu:
                      "Na gut ich komme mit, wo kann ich mich anmelden?":
                         zeuge "Kommen Sie doch mit in den Tempel, ich zeige Ihnen da {i}ALLES{/i}"
+                        $current_passenger_stats["paid"] +=  base_fare
+                        $current_passenger_stats["status"]["conversion"] = True
                      "Nein, danke kein Interesse":
                         "Sie schaut enttäuscht und sagt den Rest der Fahrt beleidigt kein Wort mehr"
 
              "Das klingt interessant. Ich mag Katzen, wo kann ich mich anmelden?":
                 "Ihre Augen leuchten und lächelnd antwortet sie:" 
                 zeuge "Kommen Sie doch mit in den Tempel"
+                $current_passenger_stats["paid"] +=  base_fare
+                $current_passenger_stats["status"]["conversion"] = True
              "Bloß nicht! Da geh ich ja lieber zum Kult der Großen AI!":
                 "Sie schaut enttäuscht und sagt den Rest der Fahrt beleidigt kein Wort mehr"
     else:
@@ -48,6 +57,7 @@ label zeuge:
                         "Nachdem du dich einige Zeit später von ihrem Schlag erholt hast, fragst du dich, warum du dachtest, dass das eine gute Idee wäre."
                     "Anhalten und sie rauswerfen":
                         zeuge "Klar ich wollte eh nicht in deinem dreckigen Erdbeertaxi fahren!"
+                        $current_passenger_stats["paid"] = 0
                     "Stoisch nach vorne auf die Straße schauen und sie ab jetzt ignorieren":
                         "Sie versucht dich weiter anzustacheln, gibt aber nach einer Weile schmollend Ruhe"
             "Wie bitte? Bin ich etwa in dein Taxi eingestiegen und habe angefangen von Religion zu faseln?":

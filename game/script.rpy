@@ -47,8 +47,11 @@ label start:
         $ money += current_passenger_stats["paid"]
         jump gameloop
     label out:
-    
-    you "Glückwunsch! Du hast heute [money] CRP verdient!"
+    $neg_money = abs(money)
+    if money >= 0:
+        you "Glückwunsch! Du hast heute [money] CRP verdient!"
+    else:
+        you "Glückwunsch! Du hast heute [neg_money] CRP verloren!"
    
 
     # This ends the game.
