@@ -14,7 +14,11 @@ label start:
     $passengers = ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]
     $passenger_stats = [{"id":1, "paid":1, "status":{}}] # The list of passengers that rode in the players taxi. List of dicts where {"id":sdsad, "paid":x, "status":{char specific}}
 
+    
     you "Du bist ein Taxifahrer."
+    
+    play music "audio/driving.wav" loop
+    show taxi_inner
     
     # 20CRP pro driver
     label gameloop:
@@ -45,7 +49,7 @@ label start:
             call bobby from _call_bobby
         elif current_passenger == "bfj":
             call bfj from _call_bfj
-        "Du hast [current_passenger_stats[paid]] verdient!"
+        "Du hast [current_passenger_stats[paid]] CRP verdient!"
         $ money += current_passenger_stats["paid"]
         jump gameloop
     label out:
