@@ -1,7 +1,7 @@
 define bfj = Character("Bahnfahrerjesus")
 
 label bfj: 
-    
+    $current_passenger_stats["status"]["beaten"] = False
     $current_passenger_stats["paid"] = base_fare
     "Ein alter Mann in zerschlissenem Anzug und einem klobigen Koffer steigt ins Taxi ein"
     bfj "Schönen guten Abend. Ich würde gerne in die nächste Stadt wenn's Recht ist."
@@ -34,6 +34,7 @@ label bfj:
             "Du drehst die Musik lauter, während er sich weiter aufregt"
         "Wie bitte? {b} ICH ZEIG IHNEN GLEICH MAL WER HIER FAUL IST HERR {i}PROFESSOR{/i}!{/b}":
             "Für einen Mann seines Alters ist dein Passagier ziemlich rüstig, wie du schnell bemerkst. Du wachst auf und ein paar {b}insert Teile oder Accesoires here{\b} fehlen an deinem Taxi!"
+            $current_passenger_stats["status"]["beaten"] = True
             $current_passenger_stats["paid"] = -0.5 * base_fare
         "Ja, es gibt schon echt viele Leute heutzutage.":
             bfj"Vor allem Faule, aber zum Glück gehören Sie ja nicht dazu!"

@@ -13,13 +13,13 @@ label start:
     $money = 0 # Money is the variable that shows how much the player currently has.
     $passengers = ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]
     $passenger_stats = [{"id":1, "paid":1, "status":{}}] # The list of passengers that rode in the players taxi. List of dicts where {"id":sdsad, "paid":x, "status":{char specific}}
-
+    $upgrades = {"staubsauger": False} # The dict of items available in the shop
     
     you "Du bist ein Taxifahrer."
     
     play music "audio/driving.wav" loop
     show taxi_inner
-    
+    call shop from _call_shop
     # 20CRP pro driver
     label gameloop:
         if len(passengers) == 0:
@@ -53,11 +53,14 @@ label start:
         $ money += current_passenger_stats["paid"]
         jump gameloop
     label out:
+    
     $neg_money = abs(money)
     if money >= 0:
         you "Glückwunsch! Du hast heute [money] CRP verdient!"
     else:
         you "Glückwunsch! Du hast heute [neg_money] CRP verloren!"
+    
+    
    
 
     # This ends the game.
