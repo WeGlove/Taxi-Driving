@@ -1,16 +1,21 @@
 ﻿label day:
+    $ passengers_of_the_day = []
     # 20CRP pro driver
     if current_day == 0:
         $passengers = passengers_day_1
     else:
         $passengers = passengers_day_2
+        
+    "Du beginnst deine Schicht in deinem Taxi."    
+        
     label gameloop:
         
         if len(passengers) == 0:
             jump out
         $ current_passenger = renpy.random.choice(passengers)
-        $ current_passenger_stats = {"id": current_passenger, "paid": base_fare, "status": {}}
+        $ current_passenger_stats = {"paid": base_fare, "status": {}}
         $ passengers.remove(current_passenger)
+        $ passengers_of_the_day.append(current_passenger)
         if current_passenger == "baby":
             call baby from _call_baby
         elif current_passenger == "mime":
@@ -35,8 +40,11 @@
             call bfj from _call_bfj
         elif current_passenger == "test":
             "You found the elusive test character. How did you get here?"
+            
+            
         "Du hast [current_passenger_stats[paid]] CRP verdient!"
         $ money += current_passenger_stats["paid"]
+        $ passenger_stats[current_passenger] = current_passenger_stats
         jump gameloop
     label out:
     

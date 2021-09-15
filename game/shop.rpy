@@ -42,6 +42,6 @@ label shop:
                 call shop_zeitungen from _shop_zeitungen
             "Putzlappen":
                 call shop_putzlappen from _shop_putzlappen
-            "continue":
+            "Den Laden verlassen.":
                 return
         jump buy_loop
