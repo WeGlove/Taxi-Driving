@@ -14,54 +14,21 @@ label start:
     $passengers = ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]
     $passenger_stats = [{"id":1, "paid":1, "status":{}}] # The list of passengers that rode in the players taxi. List of dicts where {"id":sdsad, "paid":x, "status":{char specific}}
     $upgrades = {"staubsauger": False} # The dict of items available in the shop
-    
+    $number_of_days = 2 # The number of days (levels) in the game
+    $current_day = 0 # The current day of the game
+
     you "Du bist ein Taxifahrer."
     
     play music "audio/driving.wav" loop
     show taxi_inner
-    call shop from _call_shop
-    # 20CRP pro driver
-    label gameloop:
-        if len(passengers) == 0:
-            jump out
-        $ current_passenger = renpy.random.choice(passengers)
-        $ current_passenger_stats = {"id": current_passenger, "paid": base_fare, "status": {}}
-        $ passengers.remove(current_passenger)
-        if current_passenger == "baby":
-            call baby from _call_baby
-        elif current_passenger == "mime":
-            call mime from _call_mime
-        elif current_passenger == "maffay":
-            call maffay from _call_maffay
-        elif current_passenger == "gameshow":
-            call gameshow from _call_gameshow
-        elif current_passenger == "zeuge":
-            call zeuge from _call_zeuge
-        elif current_passenger == "captain":
-            call captain from _call_captain
-            if current_passenger_stats["status"]["storytime"] and len(passengers) > 0:
-                $ passengers.remove(renpy.random.choice(passengers))
-        elif current_passenger == "clown":
-            call clown from _call_clown
-        elif current_passenger == "dance":
-            call dance from _call_dance
-        elif current_passenger == "bobby":
-            call bobby from _call_bobby
-        elif current_passenger == "bfj":
-            call bfj from _call_bfj
-        "Du hast [current_passenger_stats[paid]] CRP verdient!"
-        $ money += current_passenger_stats["paid"]
-        jump gameloop
-    label out:
     
-    $neg_money = abs(money)
-    if money >= 0:
-        you "Glückwunsch! Du hast heute [money] CRP verdient!"
-    else:
-        you "Glückwunsch! Du hast heute [neg_money] CRP verloren!"
-    
-    
+    label day_loop:
+        call day from _call_day
+        $current_day += 1
+        if current_day < number_of_days:
+            jump day_loop
    
+    "That's all for the game so far. Come back later for more!"
 
     # This ends the game.
 

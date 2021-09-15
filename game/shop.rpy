@@ -34,11 +34,14 @@ label shop:
         menu:
             "Staubsauger" if not upgrades["staubsauger"]:
                 call shop_staubsauger from _shop_staubsauger
-            "B":
-                if money >= 10:
-                    "Du hast B gekauft"
-                else:
-                    "Du hast nicht gnug Geld für B"
+            "Bilderrahmen":
+                call shop_bilderrahmen from _shop_bilderrahmen
+            "Crypto Mining":
+                call shop_crypto from _shop_crypto
+            "Zeitungen":
+                call shop_zeitungen from _shop_zeitungen
+            "Putzlappen":
+                call shop_putzlappen from _shop_putzlappen
             "continue":
                 return
         jump buy_loop
