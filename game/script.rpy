@@ -11,9 +11,10 @@ define you = Character("Du")
 label start:
     $base_fare = 20 # The base fare that a taxi rider will pay.
     $money = 0 # Money is the variable that shows how much the player currently has.
-    $passengers = ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]
+    $passengers_day_1 = ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]
+    $passengers_day_2 = ["test"]
     $passenger_stats = [{"id":1, "paid":1, "status":{}}] # The list of passengers that rode in the players taxi. List of dicts where {"id":sdsad, "paid":x, "status":{char specific}}
-    $upgrades = {"staubsauger": False} # The dict of items available in the shop
+    $upgrades = {"staubsauger": False, "zeitungen": False} # The dict of items available in the shop
     $number_of_days = 2 # The number of days (levels) in the game
     $current_day = 0 # The current day of the game
 
