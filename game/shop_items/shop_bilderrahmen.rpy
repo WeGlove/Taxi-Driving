@@ -31,9 +31,9 @@ label putzlappen:
                 "Ein Bild später"
                 shopkeep "Das ist gut geworden. Jetzt brauch' ich den Rahmen aber selbst."
                 return
-           $number_of_haggles += 1
+        $number_of_haggles += 1
         if (number_of_haggles < 2):
-                    jump haggle_loop_crypto      
+                    jump haggle_loop_bilder   
     if money >= item_cost:
             shopkeep "Gut, ich verkauf es dir für [item_cost] CRP"
             menu:
