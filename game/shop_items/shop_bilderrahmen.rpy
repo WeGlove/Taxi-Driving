@@ -13,7 +13,7 @@ label putzlappen:
                 shopkeep "Und die Nachfrage ist gerade sehr hoch. Ich glaube, der Preis hier wäre sogar zu niedrig "
                 $options[0] = True
                 $item_cost += 2*base_fare
-            "Bitte. {i}für  Mich{\i}" if options[0]
+            "Bitte. {i}für  Mich{\i}" if options[0]:
                 shopkeep "Für dich? Dann verdopple ich den Preis eher noch. Hey... Mach doch nicht so nen Hundeblick. Na gut dann erhöh ich den Preis eben nicht."
                 
                 $item_cost -= 2*base_fare
@@ -31,3 +31,18 @@ label putzlappen:
                 "Ein Bild später"
                 shopkeep "Das ist gut geworden. Jetzt brauch' ich den Rahmen aber selbst."
                 return
+           $number_of_haggles += 1
+        if (number_of_haggles < 2):
+                    jump haggle_loop_crypto      
+    if money >= item_cost:
+            shopkeep "Gut, ich verkauf es dir für [item_cost] CRP"
+            menu:
+                "Ich nehm's":
+                    $money -= item_cost
+                    $upgrades["crypto"] = True
+                "Ich lass es":
+                    return
+            "Du hast einen Bilderrahmen gekauft"
+    else:
+            "Du hast nicht genug Geld für den Bilderrahmen. Enttäuscht denkst du an all die Erinnerungen, die du darin nicht festhalten können wirst"
+            return
