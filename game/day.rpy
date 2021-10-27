@@ -20,6 +20,8 @@
             call baby from _call_baby
         elif current_passenger == "mime":
             call mime from _call_mime
+        elif current_passenger == "hero":
+            call hero from _call_hero
         elif current_passenger == "maffay":
             call maffay from _call_maffay
         elif current_passenger == "gameshow":

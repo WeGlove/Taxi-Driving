@@ -14,7 +14,7 @@ label Bilderrahmen:
                 $options[0] = True
                 $item_cost += 2*base_fare
             "Bitte. {i}für  Mich{\i}" if options[0]:
-                shopkeep "Für dich? Dann verdopple ich den Preis eher noch. Hey... Mach doch nicht so nen Hundeblick. Na gut dann erhöh ich den Preis eben nicht."
+                shopkeep "Für dich? Dann verdopple ich den Preis eher noch. Hey... Mach doch nicht so nen Hundeblick. Na gut, dann erhöh ich den Preis eben nicht."
                 
                 $item_cost -= 2*base_fare
             "Ich habe auf der Fahrt gehört, dass Bilderrahmen eine Blase sind, die bald platzen wird." if not options[1]:
