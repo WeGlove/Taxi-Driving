@@ -12,7 +12,7 @@ label start:
     $base_fare = 20 # The base fare that a taxi rider will pay.
     $money = 0 # Money is the variable that shows how much the player currently has.
     $passengers_day_1 = ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"] # Passengers day 1
-    $passengers_day_2 = ["fail_invent"] # Passengers day 2
+    $passengers_day_2 = ["fail_invent", "happy_man"] # Passengers day 2
     $passenger_stats = {} # The list of passengers that rode in the players taxi. dict where {<id of rider>: {"paid":x, "status":{char specific}}}
     
     $upgrades = {"staubsauger": False, "zeitungen": False} # The dict of items available in the shop
