@@ -32,7 +32,7 @@ label passenger_happy_man:
                     passenger_happy_man "Findest du? Welche denn zum Beispiel?"
                     menu:
                         "Bei einer Beerdigung":
-                            "Ha, sie verstehen es zu spaßen!"
+                            "Ha, sie verstehen es zu spaßen, der hätte meiner verstorbenen Frau sicher auch gefallen!"
                             jump passenger_happy_man_funeral
                         "Wenn einem ein Passagier kein Trinkgeld gibt.":
                             "Na da brauchen Sie sich keine Sorgen machen!"
@@ -101,10 +101,10 @@ label passenger_happy_man_funeral:
                             "Du kommst am Friedhof an."
                             passenger_happy_man "Vielen Dank für das interssante Gespräch während der Fahrt."
                             passenger_happy_man "Hier ist ihr Geld."
-                            "Er gibt fir die Hälfte des Fahrpreises."
+                            "Er gibt dir die Hälfte des Fahrpreises."
                             you "Hey das ist nicht genug!"
                             passenger_happy_man "Ich weiß."
-                            "Er lächelt breiter und vrlässt den Wagen"
+                            "Er lächelt breiter und verlässt den Wagen"
                             $current_passenger_stats["paid"] = base_fare / 2
                             return
                         "Es gibt aber Situationen in denen es einem besser geht wenn man traurig ist!":

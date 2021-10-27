@@ -21,6 +21,6 @@ label news:
     if current_day == 0:
         "Nachrichten des Tages 0"
     
-    news_anchor "Das war's für heute wieder mit den {b} z{i}wild{/i} *Löwengebrüll* action news mit ihrem Nachrichtensprecher Günther Gotschalk."
+    news_anchor "Das war's für heute wieder mit den {b} {i}wild{/i} *Löwengebrüll* action news mit ihrem Nachrichtensprecher Günther Gotschalk."
     
     return
