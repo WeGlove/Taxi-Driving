@@ -38,6 +38,8 @@
             call bobby from _call_bobby
         elif current_passenger == "bfj":
             call bfj from _call_bfj
+        elif current_passenger == "fail_invent":
+            call passenger_failed_inventor from _call_passenger_failed_inventor
         elif current_passenger == "test":
             "You found the elusive test character. How did you get here?"
             

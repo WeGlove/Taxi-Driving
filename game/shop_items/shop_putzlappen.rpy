@@ -29,7 +29,7 @@ label putzlappen:
                 $item_cost += base_fare
         $number_of_haggles += 1
         if (number_of_haggles < 2):
-                    jump haggle_loop_crypto      
+                    jump haggle_loop_putze      
     if money >= item_cost:
             shopkeep "Gut, ich verkauf es dir für [item_cost] CRP"
             menu:
