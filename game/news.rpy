@@ -3,6 +3,7 @@
 define news_anchor = Character("Günther Gotschalk")
 
 label news:
+    show news
     "Nach deiner Schicht setzt du dich gemütlich vor deinen Fernseher und schaust die Nachrichten."
     
     news_anchor "Guten Abend meine Damen und Herren {b} zu den {i}wild{/i} *Löwengebrüll* action news!{/b}"
@@ -23,4 +24,6 @@ label news:
     
     news_anchor "Das war's für heute wieder mit den {b} {i}wild{/i} *Löwengebrüll* action news mit ihrem Nachrichtensprecher Günther Gotschalk."
     
+    
+    hide news
     return

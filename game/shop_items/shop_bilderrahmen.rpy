@@ -1,4 +1,4 @@
-label Bilderrahmen:
+label shop_bilderrahmen:
     $item_base_cost = base_fare * 2
     $item_cost = item_base_cost
     you "Hmm, der Bilderrahmen sieht interessant aus."

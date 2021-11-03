@@ -7,6 +7,8 @@
         $passengers = passengers_day_2
         
     "Du beginnst deine Schicht in deinem Taxi."    
+    
+    show taxi_inner
         
     label gameloop:
         
@@ -60,6 +62,7 @@
     else:
         you "Glückwunsch! Du hast heute [neg_money] CRP verloren!"
     
+    hide taxi_inner
     call shop from _call_shop
     
     call news from _call_news

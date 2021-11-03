@@ -1,6 +1,7 @@
 ﻿define shopkeep = Character("Robby")
 
 label shop:
+    show shop
     shopkeep "Wilkommen zu Robbys robustem Ramsch, oder auch nicht. Mir eigentlich egal."
     menu:
         "Dir auch nen schönen Tag":
@@ -43,5 +44,6 @@ label shop:
             "Putzlappen":
                 call shop_putzlappen from _shop_putzlappen
             "Den Laden verlassen.":
+                hide shop
                 return
         jump buy_loop

@@ -1,4 +1,4 @@
-label putzlappen:
+label shop_putzlappen:
     $item_base_cost = base_fare * 2
     $item_cost = item_base_cost
     you "Was ist denn mit dem Fensterputzlappen da?"

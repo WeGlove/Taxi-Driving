@@ -8,6 +8,13 @@ define you = Character("Du")
 
 # The game starts here.
 
+screen MoneyScreen():
+    frame:
+        xalign 0.5 ypos 50
+        vbox:
+            text "[money] CRP"
+ 
+
 label start:
     $base_fare = 20 # The base fare that a taxi rider will pay.
     $money = 0 # Money is the variable that shows how much the player currently has.
@@ -21,10 +28,12 @@ label start:
     $number_of_days = 2 # The number of days (levels) in the game
     $current_day = 0 # The current day of the game
 
-    you "Du bist ein Taxifahrer."
+    "Du bist ein Taxifahrer."
+    
+    show screen MoneyScreen
+    "Hello"
     
     play music "audio/driving.wav" loop
-    show taxi_inner
     
     label day_loop:
         call day from _call_day

@@ -1,4 +1,4 @@
-label crypto:
+label shop_crypto:
     $item_base_cost = base_fare * 2
     $item_cost = item_base_cost
     you "Ich suche da noch sowas was ich auf der Seite machen kann..."
