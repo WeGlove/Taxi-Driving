@@ -44,10 +44,10 @@ label shop_staubsauger:
                 menu:
                     "Ich nehm's":
                         $money -= item_cost
-                        $upgrades["duftbaum"] = True
+                        $upgrades["Staubsauger"] = True
                     "Ich lass es":
                         return
-                "Du hast einen Duftbaum gekauft gekauft"
+                "Du hast einen Staubsauger gekauft"
             else:
-                "Du hast nicht gnug Geld für den Handststaubsauger"
+                "Du hast nicht genug Geld für den Handststaubsauger"
             return

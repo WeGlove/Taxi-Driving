@@ -56,7 +56,10 @@ label maffay:
                         
             "Nein, leider nicht":
                 maffay "Schade"
-        
+            "Normalerweise kostet das extra, aber das geht heute auf mich":
+                maffay "Alter du bist echt voll ok"
+                "Glücklich lächelnd verlässt sie an der nächsten Pommesbude dein Taxi."
+                $current_passenger_stats["paid"] -= 0.1*base_fare        
             
 
         
