@@ -1,13 +1,13 @@
 define hero = Character("Actionman")
 
-$attitude = 0
 
 label hero:
+    $attitude = 0
     "Ein Mann, der eine Unterhose über einem eng anliegenden Sportanzug trägt und sich ein Handtuch, das schlecht mit einem \"A\" bemalt wurde, umgebunden hat steigt in dein Taxi"
-    hero "{i} DAS ACTIONSIGNAL WURDE GESENDET! ACTIONMAN MUSS SOFORT ZUM JUWELIER GLITZERKRÄHE!{\i}"
+    hero "{i} DAS ACTIONSIGNAL WURDE GESENDET! ACTIONMAN MUSS SOFORT ZUM JUWELIER GLITZERKRÄHE!{/i}"
     menu:
         "Was für ein Signal? Und warum haben sie die Unterhose über der Hose an? Können Sie mich überhaupt bezahlen?":
-            "Die Bezahlung ist dein Wissen etwas für die {i} Gerechtigkeit {\i} getan zu haben! Wer kann schon von sich sagen Actionman zum Tatort gefahren zu haben?"
+            "Die Bezahlung ist dein Wissen etwas für die {i} Gerechtigkeit {/i} getan zu haben! Wer kann schon von sich sagen Actionman zum Tatort gefahren zu haben?"
             menu:
                 "Immerhin eine gute Geschichte!":
                     "Du fährst los"
@@ -53,10 +53,10 @@ label hero:
                                 hero "Ja sicher."
                                 "Er zwinkert dir vielsagend zu"
                             "Ähm. Danke.":
-                                hero "Auf {i}Actionman{\i} ist verlass!"
+                                hero "Auf {i}Actionman{/i} ist verlass!"
 
                     "Ah! Man darf natürlich nicht aus der Rolle fallen! Na dann Actionman lass uns das Verbrechen bekämpfen":
-                        hero "Du bringst mich nur hin. Wie gesagt dieser Fall gehört {i}Actionman{\i}"
+                        hero "Du bringst mich nur hin. Wie gesagt dieser Fall gehört {i}Actionman{/i}"
     "Nach einer Weile kommt ihr vor dem erstaunlich ruhigen Juwelierladen an."
     if not attitude == 1:
         hero"Actionman wird nachsehen gehen, fahr unbescholtener Mitbürger"
