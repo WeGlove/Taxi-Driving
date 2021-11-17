@@ -41,7 +41,7 @@ label hero:
                     "Er verlässt das Taxi und schreit"
                     hero "Action-Ausdauerlauf"
                     "Er beginnt in gewöhnlichem Tempo zu joggen"
-                    $current_passenger_stats["paid"] = 0 * base_fare
+                    $current_passenger.paying = 0 * game.base_fare
                     return
         "Ist da so eine Art Kostümfestival oder so? Ich habe selbst ein Kostüm und wollte bei sowas immer Mal mitmachen":
             hero "Oh ein rivalisierender Held! Nein, das hier ist Actionmans Fall! Halt du dich da raus!"
@@ -61,13 +61,13 @@ label hero:
     if not attitude == 1:
         hero"Actionman wird nachsehen gehen, fahr unbescholtener Mitbürger"
         "Er lässt dich ohne zu bezahlen zurück. Nach einer kurzen Weile hörst du Sirenen. Du beschließt dich jetzt besser auf den Weg zu machen."
-        $current_passenger_stats["paid"] = 0 * base_fare
+        $current_passenger.paying = 0 * game.base_fare
         return
     else:
         hero "Du hast Actionman wirklich beeindruckt. Ein Superheld verdient nicht viel aber wenigstens kann ich dir das hier geben"
         "Er reicht dir eine Taschenlampe, über die eine Folie mit einem A gelegt wurde"
         hero "Falls du den Actionman je wieder brauchen solltest "
-        $current_passenger_stats["paid"] = 0 * base_fare
+        $current_passenger.paying = 0 * game.base_fare
         "Nach einer kurzen Weile hörst du Sirenen. Du beschließt dich jetzt besser auf den Weg zu machen."
         return
             

@@ -1,7 +1,7 @@
 ﻿define passenger_failed_inventor = Character("Daniel Altmotor")
 
 label passenger_failed_inventor:
-    $current_passenger_stats["paid"] = 0
+    $current_passenger.paying = 0
     "Ein in einen verschlissenen Laborkittel gekleideter Mann steigt in dein Taxi."
     passenger_failed_inventor "Heureka! Zum Patentamt Kutscher!"
     menu:
@@ -96,7 +96,7 @@ label passenger_failed_inventor:
                             "Nach einer Weile kommt ihr an und er verlässt den Wagen."
                             you "Hey sie müssen noch bezahlen!"
                             passenger_failed_inventor "Ach ja mein Beschter. Hier is dei Tringgeld."
-                            $current_passenger_stats["paid"] += base_fare / 1000
+                            $current_passenger.paying += game.base_fare / 1000
                             "Er gibt dir eine Münze aus seiner Jackentasche und zieht von Dannen."
                             return
                 "Prost!":
@@ -146,6 +146,6 @@ label passenger_failed_inventor_alcohol:
             "Nach einer Weile kommt ihr an und er verlässt den Wagen."
             you "Hey sie müssen noch bezahlen!"
             passenger_failed_inventor "Ach ja mein Beschter. Hier is dei Tringgeld."
-            $current_passenger_stats["paid"] += base_fare / 1000
+            $current_passenger.paying += game.base_fare / 1000
             "Er gibt dir eine Münze aus seiner Jackentasche und zieht von Dannen."
             return

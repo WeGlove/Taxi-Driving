@@ -17,7 +17,7 @@ label dance:
             dance "{i}Uhhhhhhhhhh{/i}, ein Bruder. Du musst mir umbedingt mal ein paar deiner Moves zeigen."
             dance "Wir sind ja auch schon an der {i}location{/i}"
             dance "Time to, {i}step it up{/i}!"
-            $current_passenger_stats["paid"] += base_fare / 4
+            $current_passenger.paying += game.base_fare / 4
             jump dance_out
         "Ich habe kein besonderes Interesse. Nach einer Weile ist der ganze Disco Zug für mich abgefharen":
             dance "Ich bin {i}schocked{/i}!"
@@ -32,7 +32,7 @@ label dance:
                 dance "Der Dancter ist nicht nur {i}shocked{/i}, er ist {b}ULTRA SHOCKED{/b}"
                 dance "Disco wird {i}für immer{/i} die {i}Steps{/i} auf den {i}Floor{i} bringen"
                 dance "Genau das werd ich jetzt zeigen gehen. Time to, {i}step it up{/i}!"
-                $current_passenger_stats["paid"] -= base_fare / 4
+                $current_passenger.paying -= game.base_fare / 4
                 jump dance_out
             "Na gut, vielleicht kann Disco manchmal doch interssant sein":
                 dance "Na also, so wie Dance steppt, steppt die Welt."
@@ -46,7 +46,7 @@ label dance:
             "Naja, Tanzfertigkeit ist ja schon mal was. Werden Sie doch Tanzlehrer":
                 dance "Vielleicht hast du recht. Ich leg noch eine mal ein heißes Solo aufs Parkett und dann zeig ich anderen wie man es tut."
                 dance "Danke, Mann!"
-                $current_passenger_stats["paid"] += base_fare / 2
+                $current_passenger.paying += game.base_fare / 2
                 jump dance_out
             "Wie wär's denn mit einer anderen Musikrichtung?":
                 jump dance_music
@@ -54,7 +54,7 @@ label dance:
     label dance_music:
         dance "Eine neue Msikrichtung, huh?"
         dance "An was hast du denn gedacht?"
-        $current_passenger_stats["paid"] += base_fare
+        $current_passenger.paying += game.base_fare
         menu:
             "Rap":
                 dance "Das ist es. Das war es mit Dance Dancington. Es ist Zeit für Rap Rapington, Brother!"

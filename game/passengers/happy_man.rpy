@@ -1,8 +1,8 @@
 ﻿define passenger_happy_man = Character("Der glücklichste Mensch der je in dein Taxi gestiegen ist.")
 
 label passenger_happy_man:
-    $current_passenger_stats["status"]["cloths"] = False
-    $current_passenger_stats["paid"] = base_fare
+    $current_passenger.status["cloths"] = False
+    $current_passenger.paying = game.base_fare
     "Ein vor Freude strahlender Mann steigt in dein Taxi."
     "Er trägt ein T-Shirt auf dem ein Smiley abgedruckt ist."
     passenger_happy_man "Zum Friedhof bitte, guter Mann."
@@ -41,7 +41,7 @@ label passenger_happy_man:
                             "Du kommst am Friedhof an."
                             passenger_happy_man "Vielen Dank für die Fahrt!"
                             "Er steigt aus deinem Taxi aus"
-                            $current_passenger_stats["paid"] = 2 * base_fare
+                            $current_passenger.paying = 2 * game.base_fare
                             return
                 "Du hast recht. Immer eine positive Einstellung zu bewahren macht das Leben besser.":
                     passenger_happy_man "Ah du siehst es auch so wie ich, nicht wahr? Ein Lächeln macht jede Situation besser."
@@ -63,7 +63,7 @@ label passenger_happy_man_funeral:
         "Denken Sie nicht, dass sie falsch angezogen sind für eine Beerdigung?" if not current_passenger_stats["status"]["cloths"]:
             passenger_happy_man "Meine Frau hätte das nicht sonderlich interssiert."
             passenger_happy_man "Sie mochte mich als der, der ich bin."
-            $current_passenger_stats["status"]["cloths"] = True
+            $current_passenger.status["cloths"] = True
             jump passenger_happy_man_funeral
         "Denken Sie nicht ihre Frau wäre traurig, dass Sie an ihrer Beerdigung so glücklich sind?":
             passenger_happy_man "Ich glaube nicht das meine Frau so selbst verliebt war, dass sie gewünscht hätte, dass ich an ihrer Beerdigung traurig sein muss."
@@ -83,7 +83,7 @@ label passenger_happy_man_funeral:
                                     you "Hey, sie müssen noch bezahlen."
                                     passenger_happy_man "Es macht mich glücklich nicht zu zahlen."
                                     "Er geht."
-                                    $current_passenger_stats["paid"] = 0
+                                    $current_passenger.paying = 0
                         "Das ist ein Argument...":
                             passenger_happy_man "Siehst du du siehst es doch auch wie ich."
                             "Nach einer Weile kommt ihr am Friedhof an."
@@ -105,7 +105,7 @@ label passenger_happy_man_funeral:
                             you "Hey das ist nicht genug!"
                             passenger_happy_man "Ich weiß."
                             "Er lächelt breiter und verlässt den Wagen"
-                            $current_passenger_stats["paid"] = base_fare / 2
+                            $current_passenger.paying = game.base_fare / 2
                             return
                         "Es gibt aber Situationen in denen es einem besser geht wenn man traurig ist!":
                             passenger_happy_man "Wie meinst du das?"
@@ -119,7 +119,7 @@ label passenger_happy_man_funeral:
                             you "Hey, sie müssen noch bezahlen."
                             passenger_happy_man "Es macht mich glücklich nicht zu zahlen."
                             "Er geht."
-                            $current_passenger_stats["paid"] = 0
+                            $current_passenger.paying = 0
                             return
                 "Wenn sie meinen.":
                     passenger_happy_man "Das tue ich."

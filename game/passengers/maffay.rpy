@@ -1,5 +1,5 @@
 ﻿define maffay = Character("Keine Ahnung")
-$current_passenger_stats["paid"] = base_fare
+
 label maffay:
     "Eine Frau mit Dreadlocks steigt in dein Taxi."
     maffay "Alter, ich bin grade so high, fahr mich einfach irgendwo hin"
@@ -10,7 +10,7 @@ label maffay:
                 "Nein, ich will keine Junkies!":
                     maffay "Alter, ...  du bist schon echt ne Systemhure, weißt du?"
                     "Sie steigt aus."
-                    $current_passenger_stats["paid"] = 0
+                    $current_passenger.paying = 0
                     return
                 "Na gut, Geld ist Geld.":
                     menu:
@@ -44,22 +44,22 @@ label maffay:
                         maffay "Sie stöhnt. Was kostet's denn?"
                         menu:
                                 "Versuchen sie abzuzocken":
-                                    $waterprice = 0.5*base_fare
+                                    $waterprice = 0.5 * game.base_fare
                                     you "Das kostet [waterprice] CRP!"
                                     "Murrend gibt sie dir [waterprice] Cryptobucks"
-                                    $current_passenger_stats["paid"] += 0.5*base_fare
+                                    $current_passenger.paying += 0.5 * game.base_fare
                                 "Den regulären Preis nennen":
-                                    $waterprice = 0.1 *base_fare
+                                    $waterprice = 0.1 * game.base_fare
                                     you "Das kostet [waterprice] CRP!"
                                     "Murrend gibt sie dir [waterprice] Cryptobucks"
-                                    $current_passenger_stats["paid"] += 0.1*base_fare
+                                    $current_passenger.paying += 0.1 * game.base_fare
                         
             "Nein, leider nicht":
                 maffay "Schade"
             "Normalerweise kostet das extra, aber das geht heute auf mich":
                 maffay "Alter du bist echt voll ok"
                 "Glücklich lächelnd verlässt sie an der nächsten Pommesbude dein Taxi."
-                $current_passenger_stats["paid"] -= 0.1*base_fare        
+                $current_passenger.paying -= 0.1 * game.base_fare        
             
 
         

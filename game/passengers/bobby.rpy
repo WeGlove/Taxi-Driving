@@ -1,8 +1,8 @@
 ﻿define bobby = Character("Bobby")
 
 label bobby:
-    $current_passenger_stats["paid"] = base_fare
-    $current_passenger_stats["status"] = {"drug_subscription" : False}
+    $current_passenger.paying = game.base_fare
+    $current_passenger.status["drug_subscription"] = False
     "Ein kleinwüchsiger Mann mit langem Bart steigt in dein Taxi. Er schaut dich aus schmalen Augen an und fragt dich mit schwerem Akzent:"
     bobby "Weißt du warum man mich nennt Bobby die Ratte?"
     menu:
@@ -27,25 +27,25 @@ label bobby:
     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich dich kann versorgen mit ein bisschen was!"
     menu: 
         "Gerne!":
-            $drug_cost = 2*base_fare
-            $subscription_cost = 5* base_fare
+            $drug_cost = 2 * game.base_fare
+            $subscription_cost = 5 * game.base_fare
             bobby"Weißt du warum man mich nennt Bobby die Ratte? Weil das kosten [drug_cost] Cryptobucks"
             menu:
                 "Das ist zu teuer, geht das auch noch billiger?":
                     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich nicht feilschen. 50 CRP oder keine Drogen"
                 "Ihm das Geld geben":
                     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es eine Freude ist mit dir Geschäfte zu machen"
-                    $current_passenger_stats["paid"] -= drug_cost
+                    $current_passenger_stats.paying -= drug_cost
                 "Kann ich auch ein Abo abschließen?":
                     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es das gibt natürlich kostet nur [subscription_cost] im Monat für eine Drogenflatrate. Ich das kann nur empfehlen"
                     menu:
                         "Ihn bezahlen":
-                            $current_passenger_stats["paid"] -= subscription_cost
-                            $current_passenger_stats["status"]["drug_subscription"] = True
+                            $current_passenger.paying -= subscription_cost
+                            $current_passenger.status["drug_subscription"] = True
                             bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es eine Freude ist mit dir Geschäfte zu machen. Ich werden für die nächste Lieferung wieder mit dir fahren"
                         "Dann doch lieber nur die einzelne Dosis nehmen":
                             bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es eine Freude ist mit dir Geschäfte zu machen"
-                            $current_passenger_stats["paid"] -= drug_cost
+                            $current_passenger.paying -= drug_cost
                         "Dankend ablehnen":
                             bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich auch anderen meine Ware verkaufen kann"
 
@@ -57,10 +57,10 @@ label bobby:
                 "Auf dem ins Taxi integrierten Telefon die Polizei anrufen":
                     bobby"Weißt du warum man mich nicht nennt Bobby die Ratte? Weil ich jetzt einen Abgang mache"
                     "Er springt aus dem fahrenden Auto. Natürlich ohne zu zahlen"
-                    $current_passenger_stats["paid"] = 0
+                    $current_passenger.paying = 0
                 "Anhalten und ihn rauswerfen":
                     "Unter Protest hälst du an und wirfst ihn aus dem Auto."
-                    $current_passenger_stats["paid"] = 0
+                    $current_passenger.paying = 0
                 "Stöhnen, ihn ignorieren und ihn zur Bank fahren":
                     "Er ist auch still. Der Weg restliche Weg zur Bank verläuft reibungslos"
     return
