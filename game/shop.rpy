@@ -1,13 +1,19 @@
 ﻿define shopkeep = Character("Robby")
-
-label shop:
-    $item_list = ["Staubsauger", "Bilderrahmen",  "Crypto Mining", "Zeitungen", "Putzlappen"]
-    python: 
+init python: 
+            item_list = ["Staubsauger", "Bilderrahmen",  "Crypto Mining", "Zeitungen", "Putzlappen"]
             upgrades = {}
             haggling = {}
+            price = {}
+            options = {}
             for item in item_list:
                 upgrades[item] =  False
                 haggling[item] = 0
+                price[item] = 2*20
+                options[item] = [False, False, False, False, False]
+
+label shop:
+   
+   
 
     show shop
     shopkeep "Wilkommen zu Robbys robustem Ramsch, oder auch nicht. Mir eigentlich egal."

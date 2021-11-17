@@ -24,7 +24,7 @@ label start:
 
     $passenger_stats = {} # The list of passengers that rode in the players taxi. dict where {<id of rider>: {"paid":x, "status":{char specific}}}
     
-    $upgrades = {"staubsauger": False, "zeitungen": False} # The dict of items available in the shop
+    
     $number_of_days = 2 # The number of days (levels) in the game
     $current_day = 0 # The current day of the game
 
