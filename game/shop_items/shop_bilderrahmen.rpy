@@ -1,10 +1,20 @@
 label shop_bilderrahmen:
+    $item_ID = "Bilderrahmen"
     $item_base_cost = base_fare * 2
     $item_cost = item_base_cost
     you "Hmm, der Bilderrahmen sieht interessant aus."
     shopkeep "Ich werde nie verstehen warum Menschen so etwas brauchen. Aber diese Dinger sind scheinbar sehr beliebt. Kostet [item_base_cost] CRP"
-    $number_of_haggles = 0
+    
     $options = [False, False, False, False, False]
+    menu:
+        "Versuchen mit ihm zu feilschen" if haggling[item_ID] < 2:
+            jump haggle_loop_bilder
+        "Es nehmen":
+            $money -= item_cost
+            $upgrades[item_ID] = True
+            return
+        "Ablehnen":
+           return
 
     label haggle_loop_bilder:
         menu:
@@ -31,15 +41,15 @@ label shop_bilderrahmen:
                 "Ein Bild später"
                 shopkeep "Das ist gut geworden. Jetzt brauch' ich den Rahmen aber selbst."
                 return
-        $number_of_haggles += 1
-        if (number_of_haggles < 2):
+        $haggling[item_ID] += 1
+        if (haggling[item_ID] < 2):
                     jump haggle_loop_bilder   
     if money >= item_cost:
             shopkeep "Gut, ich verkauf es dir für [item_cost] CRP"
             menu:
                 "Ich nehm's":
                     $money -= item_cost
-                    $upgrades["crypto"] = True
+                    $upgrades[item_ID] = True
                 "Ich lass es":
                     return
             "Du hast einen Bilderrahmen gekauft"

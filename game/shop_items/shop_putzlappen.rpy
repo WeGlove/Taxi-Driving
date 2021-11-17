@@ -38,7 +38,7 @@ label shop_putzlappen:
                     $upgrades["crypto"] = True
                 "Ich lass es":
                     return
-            "Du hast einen Cryptominer gekauft gekauft"
+            "Du hast einen Lappen gekauft"
     else:
             "Du hast nicht genug Geld für den Cryptominer. Vielleicht auch besser so..."
             return
