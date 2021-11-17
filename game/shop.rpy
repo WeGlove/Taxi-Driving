@@ -1,6 +1,20 @@
 ﻿define shopkeep = Character("Robby")
+init python: 
+            item_list = ["Staubsauger", "Bilderrahmen",  "Crypto Mining", "Zeitungen", "Putzlappen"]
+            upgrades = {}
+            haggling = {}
+            price = {}
+            options = {}
+            for item in item_list:
+                upgrades[item] =  False
+                haggling[item] = 0
+                price[item] = 2*20
+                options[item] = [False, False, False, False, False]
 
 label shop:
+   
+   
+
     show shop
     shopkeep "Wilkommen zu Robbys robustem Ramsch, oder auch nicht. Mir eigentlich egal."
     menu:
@@ -33,15 +47,15 @@ label shop:
             jump buy_loop
     label buy_loop:
         menu:
-            "Staubsauger" if not upgrades["staubsauger"]:
+            "Staubsauger" if not upgrades["Staubsauger"]:
                 call shop_staubsauger from _shop_staubsauger
-            "Bilderrahmen":
+            "Bilderrahmen" if not upgrades["Bilderrahmen"]:
                 call shop_bilderrahmen from _shop_bilderrahmen
-            "Crypto Mining":
+            "Crypto Mining" if not upgrades["Crypto Mining"]:
                 call shop_crypto from _shop_crypto
-            "Zeitungen":
+            "Zeitungen" if not upgrades["Zeitungen"]:
                 call shop_zeitungen from _shop_zeitungen
-            "Putzlappen":
+            "Putzlappen" if not upgrades["Putzlappen"]:
                 call shop_putzlappen from _shop_putzlappen
             "Den Laden verlassen.":
                 hide shop
