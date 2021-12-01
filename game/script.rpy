@@ -17,10 +17,13 @@ screen MoneyScreen():
 
 screen InventoryScreen():
     tag InventoryScreen
+    $ test = game.get_acquired_upgrades()
     frame:
         xalign 0.5 yalign 0.5
         vbox:
             textbutton "Leave Inventory" action Hide("InventoryScreen")
+            for item in test:
+                text item
 
 
 screen InventoryButtonScreen():
