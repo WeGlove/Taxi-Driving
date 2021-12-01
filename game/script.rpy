@@ -14,12 +14,28 @@ screen MoneyScreen():
         xalign 0.5 ypos 50
         vbox:
             text "[game.money] CRP"
+
+screen InventoryScreen():
+    tag InventoryScreen
+    frame:
+        xalign 0.5 yalign 0.5
+        vbox:
+            textbutton "Leave Inventory" action Hide("InventoryScreen")
+
+
+screen InventoryButtonScreen():
+    frame:
+        xalign 1.0 yalign 1.0
+        vbox:
+            textbutton "Inventory" action Show("InventoryScreen")
  
 
 label start:
     "Du bist ein Taxifahrer."
-    
+    show screen InventoryScreen
+    hide screen InventoryScreen
     show screen MoneyScreen
+    show screen InventoryButtonScreen
     
     play music "audio/driving.wav" loop
     
