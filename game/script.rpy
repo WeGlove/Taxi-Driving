@@ -32,13 +32,13 @@ screen InventoryButtonScreen():
 
 label start:
     "Du bist ein Taxifahrer."
-<<<<<<< HEAD
+
     show screen InventoryScreen
     hide screen InventoryScreen
-=======
+
     $ base_fare = game.base_fare
     
->>>>>>> e74ccf026e9c20c0dd94b66b0b3721c7fd3abc4e
+
     show screen MoneyScreen
     show screen InventoryButtonScreen
     
