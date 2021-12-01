@@ -37,6 +37,7 @@ label captain:
             captain "Die Küstenwache hat mir danach die Lizenz zum Fischen auf Grund von Verstößen gegen die Menschenrechte entzogen..."
             "Nachdem Der Captain seine Geschichte beendet hat wart ihr schon eine gute halbe Stunde auf dem Kneipenparplatz, wodurch du neinen nächsten Kunden verpasst."
             $current_passenger.status["storytime"] = True
+            $game.skip_a_character(1)
             $current_passenger.paying += game.base_fare * 0.75
         "Nein, ich kann die See nicht ausstehen":
             captain "Yarr, du bist genauso salzig wie die See..."

@@ -13,7 +13,7 @@ label zeuge:
             zeuge "Erdbeerianismus ist von gestern."
          "Bleib mir bloß mit Religion weg":
             zeuge "Gerade Leute wie Sie könnten Religion gut gebrauchen!"
-            $current_passenger_stats.paying -= 0.1 * game.base_fare
+            $current_passenger.paying -= 0.1 * game.base_fare
     zeuge "Möchten Sie nicht von meiner Religion hören?"
     menu:
          "Nein, danke!":
@@ -57,7 +57,7 @@ label zeuge:
                         "Nachdem du dich einige Zeit später von ihrem Schlag erholt hast, fragst du dich, warum du dachtest, dass das eine gute Idee wäre."
                     "Anhalten und sie rauswerfen":
                         zeuge "Klar ich wollte eh nicht in deinem dreckigen Erdbeertaxi fahren!"
-                        $current_passenger_stats.paying = 0
+                        $current_passenger.paying = 0
                     "Stoisch nach vorne auf die Straße schauen und sie ab jetzt ignorieren":
                         "Sie versucht dich weiter anzustacheln, gibt aber nach einer Weile schmollend Ruhe"
             "Wie bitte? Bin ich etwa in dein Taxi eingestiegen und habe angefangen von Religion zu faseln?":
