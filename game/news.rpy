@@ -10,8 +10,8 @@ label news:
     news_anchor "Mit ihrem Narichtensprecher Günther Gotschalk"
     news_anchor "Und heute:"
     
-    if "bfj" in passengers_of_the_day:
-        if passenger_stats["bfj"]["status"]["beaten"]:
+    if "bfj" in game.past_passengers_of_today:
+        if game.get_passenger("bfj"]).status["beaten"]:
             news_anchor "Ein gebrächlicher alter Mann wurde heute von einem Taxifahrer angegriffen."
             news_anchor "Wie wir hier von Außenaufnahmen sehen können, hält der Mann eigentlich nur ein kleines Gespräch mit dem Fahrer."
             news_anchor "Der Fahrer wiederum begint grundlos auf den Mann einzuprügeln."
@@ -19,7 +19,7 @@ label news:
             bfj "Ich habe damals in während meiner Zeit im Studiun viel Kampfsport gemacht wissen Sie."
             bfj "Aber die jungen Leute sind ja auch alle viel zu faul für so was heute."
             
-    if current_day == 0:
+    if game.current_day == 0:
         "Nachrichten des Tages 0"
     
     news_anchor "Das war's für heute wieder mit den {b} {i}wild{/i} *Löwengebrüll* action news mit ihrem Nachrichtensprecher Günther Gotschalk."

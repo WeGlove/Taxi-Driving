@@ -18,6 +18,7 @@ screen MoneyScreen():
 
 label start:
     "Du bist ein Taxifahrer."
+    $ base_fare = game.base_fare
     
     show screen MoneyScreen
     

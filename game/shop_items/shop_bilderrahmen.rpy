@@ -1,18 +1,18 @@
 label shop_bilderrahmen:
     $item_ID = "Bilderrahmen"
-    $item_base_cost = base_fare * 2
+    $item_base_cost = game.base_fare * 2
         
     you "Hmm, der Bilderrahmen sieht interessant aus."
-    $text_price = price[item_ID]
+    $text_price = game.price[item_ID]
     shopkeep "Ich werde nie verstehen warum Menschen so etwas brauchen. Aber diese Dinger sind scheinbar sehr beliebt. Kostet [text_price] CRP"
     
     
     menu:
-        "Versuchen mit ihm zu feilschen" if haggling[item_ID] < 2:
+        "Versuchen mit ihm zu feilschen" if game.haggling[item_ID] < 2:
             jump haggle_loop_bilder
         "Es nehmen":
-            $money -= price[item_ID]
-            $upgrades[item_ID] = True
+            $game.money -= price[item_ID]
+            $game.upgrades[item_ID] = True
             return
         "Ablehnen":
            return
@@ -22,24 +22,24 @@ label shop_bilderrahmen:
             "Wenn du das nicht verstehst, gibst du ihn mir bestimmt billiger" if not options[item_ID][0]:
                 shopkeep "Nur weil ich nicht verstehe {i} warum {\i} Leute etwas kaufen, verstehe ich trotzdem  dass sie es kaufen"
                 shopkeep "Und die Nachfrage ist gerade sehr hoch. Ich glaube, der Preis hier wäre sogar zu niedrig "
-                $options[item_ID][0] = True
-                $price[item_ID] += 2*base_fare
-            "Bitte. {i}für  Mich{\i}" if options[item_ID][0]:
+                $game.options[item_ID][0] = True
+                $game.price[item_ID] += 2*base_fare
+            "Bitte. {i}für  Mich{\i}" if game.options[item_ID][0]:
                 shopkeep "Für dich? Dann verdopple ich den Preis eher noch. Hey... Mach doch nicht so nen Hundeblick. Na gut, dann erhöh ich den Preis eben nicht."
                 
-                $item_cost -= 2*base_fare
-            "Ich habe auf der Fahrt gehört, dass Bilderrahmen eine Blase sind, die bald platzen wird." if not options[item_ID][1]:
+                $item_cost -= 2*game.base_fare
+            "Ich habe auf der Fahrt gehört, dass Bilderrahmen eine Blase sind, die bald platzen wird." if not game.options[item_ID][1]:
                 shopkeep "Blödsinn! Wobei. Du kommst wirklich rum in deinem Taxi. Ich geb ihn dir etwas billiger"
-                $options[item_ID][1] = True
-                $price[item_ID] -= 2*base_fare
-            "Bist du dir sicher dass du dafür überhaupt noch Abnehmer findest? Der Markt an Bilderrahmen ist ja ziemlich gesättigt" if options[item_ID][1]:
+                $game.options[item_ID][1] = True
+                $game.price[item_ID] -= 2*game.base_fare
+            "Bist du dir sicher dass du dafür überhaupt noch Abnehmer findest? Der Markt an Bilderrahmen ist ja ziemlich gesättigt" if game.options[item_ID][1]:
                 shopkeep"Ok. Jetzt verarschst du mich aber. Über's Ohr hauen lass' ich mich nicht. Du bezahlst den vollen Preis"
                 
                 
-                $price[item_ID] += 2* base_fare
-            "Den momentanen Preis akzeptieren" if options[item_ID][1]:
-                    $money -= price[item_ID]
-                    $upgrades[item_ID] = True
+                $game.price[item_ID] += 2* game.base_fare
+            "Den momentanen Preis akzeptieren" if game.game.options[item_ID][1]:
+                    $game.money -= game.price[item_ID]
+                    $game.upgrades[item_ID] = True
                     return
 
             "Wir können auch zusammen ein Bild machen. Dann verstehst du vielleicht wieso Leute die Dinger kaufen":
@@ -47,15 +47,15 @@ label shop_bilderrahmen:
                 "Ein Bild später"
                 shopkeep "Das ist gut geworden. Jetzt brauch' ich den Rahmen aber selbst."
                 return
-        $haggling[item_ID] += 1
-        if (haggling[item_ID] < 2):
+        $game.haggling[item_ID] += 1
+        if (game.haggling[item_ID] < 2):
                     jump haggle_loop_bilder   
-    if money >= price[item_ID]:
+    if game.money >= game.price[item_ID]:
             shopkeep "Gut, ich verkauf es dir für [item_cost] CRP"
             menu:
                 "Ich nehm's":
-                    $money -= price[item_ID]
-                    $upgrades[item_ID] = True
+                    $game.money -= game.price[item_ID]
+                    $game.upgrades[item_ID] = True
                 "Ich lass es":
                     return
             "Du hast einen Bilderrahmen gekauft"

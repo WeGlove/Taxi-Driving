@@ -55,7 +55,7 @@ label gameshow:
         "C) Zum Rathaus fahren, um ihre Gameshow den Mitgliedern zu präsentieren":
             gameshow "Haha! Nur Mut zum Risiko, so muss das sein!"
             gameshow "Den Geldpreis haben Sie sich verdient!"
-            $current_passenger.pyaing += game.base_fare / 4
+            $current_passenger.paying += game.base_fare / 4
         "D) Zum Rathaus fahren um einen Anschlag zu verüben":
             gameshow "Es tut mir Leid meine Damen und Herren ich habe grade Wort aus der Regie bekommen das wir das geplante Programm unterbrechen müssen!"
             gameshow "Damit fällt leider auch der Geldpresis weg der für Sie ausgelegt war, es tut uns Leid!"
