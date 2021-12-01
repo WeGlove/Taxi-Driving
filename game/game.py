@@ -15,9 +15,9 @@ class Game:
         self.past_passengers_of_today = [] # Passengers that have been in the taxi today.
         
         self.pools = { 
-        "tier_1": [Passenger(name) for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]],
-        "tier_2": [Passenger(name) for name in ["fail_invent", "hero",  "happy_man"]]
-        } # The pools of passenges from which to build passenger lists.
+        "tier_1": [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]],
+        "tier_2": [Passenger(name, "tier_2") for name in ["fail_invent", "hero",  "happy_man"]]
+        } # The pools of passenges from which to build passenger lists. Constraint ein Character is in höchstens einem Pool
         self.all_passengers = [passenger for passenger in [pool for (key,pool) in self.pools.items()]]
         
         """Shop Items"""
@@ -44,11 +44,20 @@ class Game:
             Creates a list of passengers for the current day.
         """
         if self.current_day == 0:
-            return self.pools["tier_1"]
+            return self.draw_from_pool(7, self.pools["tier_1"])
         elif self.current_day == 1:
-            return self.pools["tier_2"]
+            return self.draw_from_pool(3, self.pools["tier_1"]) + draw_from_pool(3, self.pools["tier_2"])
         else:
             return []
+    
+    def draw_from_pool(self, amount, pool):
+        pool_copy = list(pool) # Make a copy of the pool
+        passengers = []
+        for _ in range(amount): # Draw without returning
+            passenger = random.choice(pool_copy)
+            pool_copy.remove(passenger)
+            passengers.append(passenger)
+        return passengers
     
     def skip_a_character(amount=1):
         """
@@ -89,8 +98,11 @@ class Game:
         """
             End the current day.
         """
+        for passenger in self.past_passengers_of_today:
+            self.pools[passenger.pool].remove(passenger)
         self.current_day += 1
     
-
+    def get_acquired_upgrades():
+        return[key for key in self.upgrades.keys() if upgrade[key]]
 
         
