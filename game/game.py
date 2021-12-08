@@ -20,7 +20,7 @@ class Game:
         
         self.default_function = lambda game: True
         self.all_passengers = [Passenger(name, "tier_1", self.default_function) for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
-                              [Passenger(name, "tier_2", self.default_function) for name in ["fail_invent", "hero",  "happy_man"]] +\
+                              [Passenger(name, "tier_2", self.default_function) for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man"]] +\
                               [Passenger(name, "esoteric", self.default_function) for name in ["test"]]
         
         self.pools = {}
@@ -35,7 +35,7 @@ class Game:
         for item in self.item_list:
             self.upgrades[item] =  False
             self.haggling[item] = 0
-            self.price[item] = 2*20
+            self.price[item] = 2*self.base_fare
             self.options[item] = [False, False, False, False, False]
             
     def get_passenger(self, name):
@@ -131,5 +131,7 @@ class Game:
     
     def get_acquired_upgrades(self):
         return[key for key in self.upgrades.keys() if self.upgrades[key]]
-
+    
+    def pay_passenger(self):
+        self.money += self.current_passenger.paying
         
