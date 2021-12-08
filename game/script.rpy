@@ -5,6 +5,7 @@
 
 init python:
     from game import Game
+    from game import Game as renpyisgreat
     game = Game()
 
 define you = Character("Du")
@@ -21,16 +22,35 @@ screen InventoryScreen():
     frame:
         xalign 0.5 yalign 0.5
         vbox:
-            textbutton "Leave Inventory" action Hide("InventoryScreen")
+            textbutton "Inventar verlassen" action Hide("InventoryScreen")
             for item in test:
-                text item
-
+                if item == "Bilderrahmen":
+                    textbutton "Bilderrahmen" action Show("BilderrahmenScreen")
+                else:
+                    text item
+                
+screen BilderrahmenScreen():
+    tag BilderrahmenScreen
+    frame:
+        xalign 0.5 yalign 0.5
+        $acquired = game.acquired_images
+        $lenac = len(acquired)
+        if (lenac == 0):
+            text "Du hast keine Bilder um sie in deinen Bilderrahmen zu füllen. Versuch doch mal einen Passagier nach einem zu fragen!"
+        else :
+            text "Wähle ein Bild um es in den Bilderrahmen zu füllen. Dieser Passagier wird dir das doppelte zahlen! WARNUNG: DIESER EFFEKT VERDOPPELT IM MOMENT AUCH NEGATIVE  WERTE "
+            for photo in acquired:
+                textbutton photo action SetVariable("game.favorite_passenger", photo)
+        frame:
+            xalign 0.5 yalign 0.9
+            textbutton "Bilderrahmen-Menü verlassen" action Hide("BilderrahmenScreen")
 
 screen InventoryButtonScreen():
     frame:
         xalign 1.0 yalign 1.0
         vbox:
             textbutton "Inventory" action Show("InventoryScreen")
+        
  
 
 label start:

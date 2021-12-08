@@ -47,6 +47,7 @@ label shop_putzlappen:
                 "Ich nehm's":
                     $game.money -= game.price[item_ID]
                     $game.upgrades[item_ID] = True
+                    $game.friendliness += 3
                 "Ich lass es":
                     return
             "Du hast einen Lappen gekauft"

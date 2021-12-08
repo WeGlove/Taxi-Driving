@@ -4,7 +4,8 @@ label shop_bilderrahmen:
         
     you "Hmm, der Bilderrahmen sieht interessant aus."
     $text_price = game.price[item_ID]
-    shopkeep "Ich werde nie verstehen warum Menschen so etwas brauchen. Aber diese Dinger sind scheinbar sehr beliebt. Kostet [text_price] CRP"
+    shopkeep "Ich werde nie verstehen warum Menschen so etwas brauchen. Aber diese Dinger sind scheinbar sehr beliebt. Du kannst zum Beispiel ein Bild deines Lieblingspassagiers rein machen.\
+    Der wird sich bestimmt freuen! Kostet [text_price] CRP"
     
     
     menu:

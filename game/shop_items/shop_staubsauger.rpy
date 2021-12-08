@@ -59,6 +59,7 @@ label shop_staubsauger:
                     "Ich nehm's":
                         $game.money -= game.price[item_ID]
                         $game.upgrades[item_ID] = True
+                        $game.friendliness += 2
                     "Ich lass es":
                         return
                 "Du hast einen Staubsauger gekauft"
