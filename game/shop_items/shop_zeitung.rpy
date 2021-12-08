@@ -57,6 +57,7 @@ label shop_zeitungen:
                     "Ich nehm's":
                         $game.money -= game.price[item_ID]
                         $game.upgrades[item_ID] = True
+                        $game.friendliness += 0.5
                     "Ich lass es":
                         return
                 "Du hast einen Haufen alter Zeitungen gekauft."

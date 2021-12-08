@@ -66,6 +66,7 @@ label shop_crypto:
                 "Ich nehm's":
                     $game.money -= game.price[item_ID]
                     $game.upgrades[item_ID] = True
+                    $game.friendliness -= 1
                 "Ich lass es":
                     return
             "Du hast einen Cryptominer gekauft gekauft"

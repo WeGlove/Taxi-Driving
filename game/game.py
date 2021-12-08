@@ -5,6 +5,10 @@ class Game:
     
     base_fare = 20
     number_of_days = 2
+    friendliness = 0
+    acquired_images = []
+    favorite_passenger = ""
+
     
     def __init__(self):
         self.money = 0 # The current amount of money the player has
