@@ -19,7 +19,8 @@
         $ game.pay_passenger()
         if game.upgrades["Crypto Mining"]:
             $game.money += game.base_fare/10
-            "Du erhälst extra Einnahmen in Höhe von [game.base_fare/10] CRP durch crypto Mining!"
+            # TODO This is slightly wrong. But I don't know how to correctly show basefare/10 here.
+            "Du erhälst extra Einnahmen in Höhe von [game.base_fare] CRP durch crypto Mining!"
             "{i}\U+266A Crypto Mining!\U+266A{/i}"
             "{i}\U+266A Machen auch Sie ihr Strom zu Geld!\U+266A {/i}"
         
@@ -29,9 +30,9 @@
     
     $neg_money = abs(game.money)
     if game.money >= 0:
-        you "Glückwunsch! Du hast heute [game.money] CRP verdient!"
+        "Glückwunsch! Du hast heute [game.money] CRP verdient!"
     else:
-        you "Glückwunsch! Du hast heute [neg_money] CRP verloren!"
+        "Glückwunsch? Du hast heute [neg_money] CRP verloren!"
     
     hide taxi_inner
     call shop from _call_shop

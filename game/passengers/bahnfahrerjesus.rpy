@@ -8,7 +8,7 @@ label bfj:
     menu:
         "Sie sehen aus, wie ein Penner, können Sie mich überhaupt bezahlen?":
             bfj "Bitte, ein Mann meines Berufes kann sich so etwas noch leisten. Sie müssen wissen, ich war mal Professor."
-            $current_passenger_stats.paying -= 0.25 * game.base_fare
+            $current_passenger.paying -= 0.25 * game.base_fare
         "Guten Abend! Das mache ich gerne, steigen Sie ein!":
             bfj "So freundliche Menschen findet man heutzutage wirklich selten"
             $current_passenger.paying += 0.25 * game.base_fare

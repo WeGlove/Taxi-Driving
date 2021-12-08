@@ -1,11 +1,14 @@
 day.rpy
 day.rpyc
+game.py
 gui.rpy
 gui.rpyc
 news.rpy
 news.rpyc
 options.rpy
 options.rpyc
+passenger.py
+passengers.json
 screens.rpy
 screens.rpyc
 script.rpy
@@ -96,6 +99,9 @@ gui\slider\vertical_hover_bar.png
 gui\slider\vertical_hover_thumb.png
 gui\slider\vertical_idle_bar.png
 gui\slider\vertical_idle_thumb.png
+images\black.png
+images\news.png
+images\shop.png
 images\taxi_inner.pdn
 images\taxi_inner.png
 passengers\baby.rpy
@@ -116,10 +122,14 @@ passengers\gameshow.rpy
 passengers\gameshow.rpyc
 passengers\happy_man.rpy
 passengers\happy_man.rpyc
+passengers\hero.rpy
+passengers\hero.rpyc
 passengers\maffay.rpy
 passengers\maffay.rpyc
 passengers\mime.rpy
 passengers\mime.rpyc
+passengers\test.rpy
+passengers\test.rpyc
 passengers\zeuge.rpy
 passengers\zeuge.rpyc
 saves\_reload-2-LT1.save
@@ -132,7 +142,6 @@ saves\auto-5-LT1.save
 saves\auto-6-LT1.save
 saves\auto-7-LT1.save
 saves\auto-8-LT1.save
-saves\auto-9-LT1.save
 saves\navigation.json
 saves\persistent
 shop_items\shop_bilderrahmen.rpy

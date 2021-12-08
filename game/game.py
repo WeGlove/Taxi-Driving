@@ -1,4 +1,5 @@
 import random
+import json
 from passenger import Passenger
 
 class Game:
@@ -18,10 +19,9 @@ class Game:
         self.future_passengers_of_today = [] # Passengers that are going to drive the taxi today.
         self.past_passengers_of_today = [] # Passengers that have been in the taxi today.
         
-        self.default_function = lambda game: True
-        self.all_passengers = [Passenger(name, "tier_1", self.default_function) for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
-                              [Passenger(name, "tier_2", self.default_function) for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man"]] +\
-                              [Passenger(name, "esoteric", self.default_function) for name in ["test"]]
+        self.all_passengers = [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
+                              [Passenger(name, "tier_2") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man"]] +\
+                              [Passenger(name, "esoteric") for name in ["test"]]
         
         self.pools = {}
         
@@ -47,11 +47,26 @@ class Game:
     
     def refill_pools(self):
         return{
-            "tier_1": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1" if not passenger.has_driven and passenger.conditional(self)],
-            "tier_2": [passenger for passenger in self.all_passengers if passenger.pool == "tier_2" if not passenger.has_driven and passenger.conditional(self)],
-            "esoteric": [passenger for passenger in self.all_passengers if passenger.pool == "esoteric" if not passenger.has_driven and passenger.conditional(self)]
+            "tier_1": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
+            "tier_2": [passenger for passenger in self.all_passengers if passenger.pool == "tier_2" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
+            "esoteric": [passenger for passenger in self.all_passengers if passenger.pool == "esoteric" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)]
         } # The pools of passengers from which to build passenger lists. Constraint ein Character is in höchstens einem Pool
         
+    
+    def passenger_fulfills_condition(self, passenger):
+        for cond_passenger_name, cond_status in passenger.conditional.items():
+            cond_passenger = self.get_passenger(cond_passenger_name)
+            if "has_driven" in cond_status.keys():
+                if cond_passenger.has_driven != cond_status["has_driven"]:
+                    return False
+            if "paying" in cond_status.keys():
+                if cond_passenger.paying != cond_status["paying"]:
+                    return False
+            if "status" in cond_status.keys():
+                for status_key, status_value in cond_status.items():
+                    if cond_passenger.status[status_key] != status_value:
+                        return False
+        return True
     
     def _get_passengers(self):
         """
@@ -134,4 +149,5 @@ class Game:
     
     def pay_passenger(self):
         self.money += self.current_passenger.paying
+    
         
