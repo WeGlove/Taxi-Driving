@@ -14,14 +14,13 @@ class Game:
         self.future_passengers_of_today = [] # Passengers that are going to drive the taxi today.
         self.past_passengers_of_today = [] # Passengers that have been in the taxi today.
         
-        self.all_passengers = [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
-                              [Passenger(name, "tier_2") for name in ["fail_invent", "hero",  "happy_man"]] +\
-                              [Passenger(name, "esoteric") for name in ["test"]]
-        self.pools = { 
-            "tier_1": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1"],
-            "tier_2": [passenger for passenger in self.all_passengers if passenger.pool == "tier_2"],
-            "esoteric": [passenger for passenger in self.all_passengers if passenger.pool == "esoteric"]
-        } # The pools of passenges from which to build passenger lists. Constraint ein Character is in höchstens einem Pool
+        self.default_function = lambda game: True
+        self.all_passengers = [Passenger(name, "tier_1", self.default_function) for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
+                              [Passenger(name, "tier_2", self.default_function) for name in ["fail_invent", "hero",  "happy_man"]] +\
+                              [Passenger(name, "esoteric", self.default_function) for name in ["test"]]
+        
+        self.pools = {}
+        
         
         """Shop Items"""
         self.item_list = ["Staubsauger", "Bilderrahmen",  "Crypto Mining", "Zeitungen", "Putzlappen"]
@@ -42,7 +41,15 @@ class Game:
                 return passenger
         return None #TODO throw exception here!
     
-    def get_passengers(self):
+    def refill_pools(self):
+        return{
+            "tier_1": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1" if not passenger.has_driven and passenger.conditional(self)],
+            "tier_2": [passenger for passenger in self.all_passengers if passenger.pool == "tier_2" if not passenger.has_driven and passenger.conditional(self)],
+            "esoteric": [passenger for passenger in self.all_passengers if passenger.pool == "esoteric" if not passenger.has_driven and passenger.conditional(self)]
+        } # The pools of passengers from which to build passenger lists. Constraint ein Character is in höchstens einem Pool
+        
+    
+    def _get_passengers(self):
         """
             Creates a list of passengers for the current day.
         """
@@ -89,7 +96,8 @@ class Game:
         """
             Set up for the current day.
         """
-        self.future_passengers_of_today = self.get_passengers()
+        self.pools = self.refill_pools()
+        self.future_passengers_of_today = self._get_passengers()
         
     def next_passenger(self):
         """
