@@ -12,7 +12,7 @@ label shop_bilderrahmen:
         "Versuchen mit ihm zu feilschen" if game.haggling[item_ID] < 2:
             jump haggle_loop_bilder
         "Es nehmen":
-            $game.money -= price[item_ID]
+            $game.money -= game.price[item_ID]
             $game.upgrades[item_ID] = True
             return
         "Ablehnen":

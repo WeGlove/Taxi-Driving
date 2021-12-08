@@ -16,12 +16,13 @@
         with Dissolve(0.5)
             
         "Du hast [game.current_passenger.paying] CRP verdient!"
+        $ game.pay_passenger()
         if game.upgrades["Crypto Mining"]:
             $game.money += game.base_fare/10
             "Du erhälst extra Einnahmen in Höhe von [game.base_fare/10] CRP durch crypto Mining!"
             "{i}\U+266A Crypto Mining!\U+266A{/i}"
             "{i}\U+266A Machen auch Sie ihr Strom zu Geld!\U+266A {/i}"
-        $ game.money += game.current_passenger.paying
+        
         
         jump gameloop
     label out:

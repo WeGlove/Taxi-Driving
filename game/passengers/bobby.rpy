@@ -35,7 +35,7 @@ label bobby:
                     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil ich nicht feilschen. 50 CRP oder keine Drogen"
                 "Ihm das Geld geben":
                     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es eine Freude ist mit dir Geschäfte zu machen"
-                    $current_passenger_stats.paying -= drug_cost
+                    $current_passenger.paying -= drug_cost
                 "Kann ich auch ein Abo abschließen?":
                     bobby "Weißt du warum man mich nennt Bobby die Ratte? Weil es das gibt natürlich kostet nur [subscription_cost] im Monat für eine Drogenflatrate. Ich das kann nur empfehlen"
                     menu:
