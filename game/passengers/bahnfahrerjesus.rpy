@@ -14,6 +14,10 @@ label bfj:
             $current_passenger.paying += 0.25 * game.base_fare
         "Grummeln und Nicken":
              "Er steigt ein und beginnt dir seine Geschichte zu erzählen"
+        "Sagen Sie mal das hört sich jetzt vielleicht komisch an, aber könnte ich ein Foto von Ihnen haben" if game.upgrades["Bilderrahmen"]:
+            bfj "Aber sicher! Ein Foto eines Professors wie mir ist sicher Motivation für junge Leute wie Sie!"
+            $current_passenger.paying += 0.25 * game.base_fare
+            $ game.acquired_images.append(game.current_passenger.call_label)
 
     bfj  "Wissen Sie, ich war mal Professor der Philosophie, da hab ich viel gemacht mit meiner Schreibmaschine"
     menu:

@@ -133,5 +133,12 @@ class Game:
         return[key for key in self.upgrades.keys() if self.upgrades[key]]
     
     def pay_passenger(self):
-        self.money += self.current_passenger.paying
+        acquired_money =0
+        acquired_money += self.current_passenger.paying
+        acquired_money += self.friendliness
+        if self.current_passenger.call_label == self.favorite_passenger:
+            acquired_money = acquired_money * 2
+        self.money += acquired_money
+        return acquired_money
+
         
