@@ -102,7 +102,7 @@ class Game:
             self.pools[passenger.pool].remove(passenger)
         self.current_day += 1
     
-    def get_acquired_upgrades():
-        return[key for key in self.upgrades.keys() if upgrade[key]]
+    def get_acquired_upgrades(self):
+        return[key for key in self.upgrades.keys() if self.upgrades[key]]
 
         
