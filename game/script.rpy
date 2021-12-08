@@ -38,9 +38,10 @@ screen BilderrahmenScreen():
         if (lenac == 0):
             text "Du hast keine Bilder um sie in deinen Bilderrahmen zu füllen. Versuch doch mal einen Passagier nach einem zu fragen!"
         else :
-            text "Wähle ein Bild um es in den Bilderrahmen zu füllen. Dieser Passagier wird dir das doppelte zahlen! WARNUNG: DIESER EFFEKT VERDOPPELT IM MOMENT AUCH NEGATIVE  WERTE "
-            for photo in acquired:
-                textbutton photo action SetVariable("game.favorite_passenger", photo)
+            vbox:
+                text "Wähle ein Bild um es in den Bilderrahmen zu füllen. Dieser Passagier wird dir das doppelte zahlen! WARNUNG: DIESER EFFEKT VERDOPPELT IM MOMENT AUCH NEGATIVE  WERTE"
+                for photo in acquired:
+                    textbutton photo action SetVariable("game.favorite_passenger", photo)
         frame:
             xalign 0.5 yalign 0.9
             textbutton "Bilderrahmen-Menü verlassen" action Hide("BilderrahmenScreen")

@@ -15,15 +15,18 @@
         hide taxi_inner
         with Dissolve(0.5)
             
-        "Du hast [game.current_passenger.paying] CRP verdient!"
-        $ game.pay_passenger()
+        
+        $ acquired_money = game.pay_passenger()
+        "Du hast [acquired_money] CRP verdient!"
         if game.upgrades["Crypto Mining"]:
             $game.money += game.base_fare/10
             # TODO This is slightly wrong. But I don't know how to correctly show basefare/10 here.
             "Du erhälst extra Einnahmen in Höhe von [game.base_fare] CRP durch crypto Mining!"
             "{i}\U+266A Crypto Mining!\U+266A{/i}"
             "{i}\U+266A Machen auch Sie ihr Strom zu Geld!\U+266A {/i}"
-        
+
+        $ game.money += game.current_passenger.paying 
+
         
         jump gameloop
     label out:
