@@ -21,7 +21,7 @@
             "Du erhälst extra Einnahmen in Höhe von [game.base_fare/10] CRP durch crypto Mining!"
             "{i}\U+266A Crypto Mining!\U+266A{/i}"
             "{i}\U+266A Machen auch Sie ihr Strom zu Geld!\U+266A {/i}"
-        $ game.money += game.current_passenger.paying
+        $ game.money += game.current_passenger.paying 
         
         jump gameloop
     label out:
