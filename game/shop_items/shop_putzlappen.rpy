@@ -9,7 +9,7 @@ label shop_putzlappen:
         "Versuchen mit ihm zu feilschen" if game.haggling[item_ID] < 2:
             jump haggle_loop_putze
         "Es nehmen":
-            $game.money -= item_cost
+            $game.money -= game.price[item_ID]
             $game.upgrades[item_ID] = True
             return
         "Ablehnen":

@@ -19,7 +19,7 @@ label shop_crypto:
         "Versuchen mit ihm zu feilschen" if game.haggling[item_ID] < 2:
             jump haggle_loop_crypto
         "Es nehmen":
-            $game.money -= price[item_ID]
+            $game.money -= game.price[item_ID]
             $game.upgrades[item_ID] = True
             return
         "Ablehnen":
@@ -37,7 +37,7 @@ label shop_crypto:
             "Wenn du das Ding hast. Bist letztendlich dann nicht du unausstehlich?" if not game.options[item_ID][0]:
                 $game.options[item_ID][0] = True
                 $game.price[item_ID] -= base_fare
-                $text_price = price[item_ID]
+                $text_price = game.price[item_ID]
                 shopkeep "Wenn du es so sagst, will ich es eigentlich gar nicht mehr. Ich überlass es dir für  [text_price]"
                 $game.options[item_ID][0] = True
                 $game.price[item_ID] -= game.base_fare
@@ -64,7 +64,7 @@ label shop_crypto:
             shopkeep "Gut, ich verkauf es dir für [text_price] CRP"
             menu:
                 "Ich nehm's":
-                    $game.money -= item_cost
+                    $game.money -= game.price[item_ID]
                     $game.upgrades[item_ID] = True
                 "Ich lass es":
                     return
