@@ -14,11 +14,14 @@ class Game:
         self.future_passengers_of_today = [] # Passengers that are going to drive the taxi today.
         self.past_passengers_of_today = [] # Passengers that have been in the taxi today.
         
+        self.all_passengers = [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
+                              [Passenger(name, "tier_2") for name in ["fail_invent", "hero",  "happy_man"]] +\
+                              [Passenger(name, "esoteric") for name in ["test"]]
         self.pools = { 
-        "tier_1": [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]],
-        "tier_2": [Passenger(name, "tier_2") for name in ["fail_invent", "hero",  "happy_man"]]
+            "tier_1": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1"],
+            "tier_2": [passenger for passenger in self.all_passengers if passenger.pool == "tier_2"],
+            "esoteric": [passenger for passenger in self.all_passengers if passenger.pool == "esoteric"]
         } # The pools of passenges from which to build passenger lists. Constraint ein Character is in höchstens einem Pool
-        self.all_passengers = [passenger for passenger in [pool for (key,pool) in self.pools.items()]]
         
         """Shop Items"""
         self.item_list = ["Staubsauger", "Bilderrahmen",  "Crypto Mining", "Zeitungen", "Putzlappen"]
@@ -44,13 +47,14 @@ class Game:
             Creates a list of passengers for the current day.
         """
         if self.current_day == 0:
-            return self.draw_from_pool(7, self.pools["tier_1"])
+            return self.draw_from_pool(7, self.pools["tier_1"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
         elif self.current_day == 1:
-            return self.draw_from_pool(3, self.pools["tier_1"]) + draw_from_pool(3, self.pools["tier_2"])
+            return self.draw_from_pool(3, self.pools["tier_1"]) + self.draw_from_pool(3, self.pools["tier_2"])
         else:
             return []
     
     def draw_from_pool(self, amount, pool):
+        """Draws an amount of elements from the given pool without giving elements back"""
         pool_copy = list(pool) # Make a copy of the pool
         passengers = []
         for _ in range(amount): # Draw without returning
@@ -58,6 +62,17 @@ class Game:
             pool_copy.remove(passenger)
             passengers.append(passenger)
         return passengers
+    
+    def maybe_draw_from_pool(self, amount, pool, probability):
+        pool_copy = list(pool) # Make a copy of the pool
+        passengers = []
+        for _ in range(amount): # Draw without returning
+            if random.random() < probability:
+                passenger = random.choice(pool_copy)
+                pool_copy.remove(passenger)
+                passengers.append(passenger)
+        return passengers
+    
     
     def skip_a_character(amount=1):
         """
