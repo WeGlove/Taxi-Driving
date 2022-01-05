@@ -12,3 +12,9 @@ class Passenger:
         if conditional is None:
             conditional = {}
         self.conditional = conditional # The condition on which a char should be added to its pool
+        
+    def __repr__(self):
+        return "Passenger: %s" % self.call_label #+ self.call_label + " paying: " + self.paying + " has_driven: " + self.has_driven + " Pool: " + self.pool + " status: " + self.status
+    
+    def __str__(self):
+        return "Passenger: %s" % self.call_label #+ self.call_label + " paying: " + self.paying + " has_driven: " + self.has_driven + " Pool: " + self.pool + " status: " + self.status

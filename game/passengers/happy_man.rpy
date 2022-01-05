@@ -60,7 +60,7 @@ label passenger_happy_man:
 
 label passenger_happy_man_funeral:
     menu:
-        "Denken Sie nicht, dass sie falsch angezogen sind für eine Beerdigung?" if not current_passenger_stats["status"]["cloths"]:
+        "Denken Sie nicht, dass sie falsch angezogen sind für eine Beerdigung?" if not current_passenger.status["cloths"]:
             passenger_happy_man "Meine Frau hätte das nicht sonderlich interssiert."
             passenger_happy_man "Sie mochte mich als der, der ich bin."
             $current_passenger.status["cloths"] = True

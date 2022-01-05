@@ -11,7 +11,7 @@
         
         show taxi_inner
         with Dissolve(0.5)
-        call expression game.current_passenger.call_label from _call_expression # TODO Captain removed passenger nicht mehr.
+        call expression game.current_passenger.call_label # TODO Captain removed passenger nicht mehr.
         hide taxi_inner
         with Dissolve(0.5)
             

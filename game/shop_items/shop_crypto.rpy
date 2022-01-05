@@ -53,7 +53,7 @@ label shop_crypto:
             "Selbst das hab ich in ein paar Tagen mit dem Ding wieder drin!" if game.options[item_ID][1]:
                 $game.price[item_ID]+= game.base_fate
                 shopkeep "Unausstehlich {b}und{/b} lernresistent. Immerhin kannst du das Ding dann ja auch gerne noch teurer haben wenn's so wertvoll ist."
-            "Kein Problem! Das zahlt sich dann ja.. Bäh. Das macht einen ja wirklich unausstehlich ":
+            "Kein Problem! Das zahlt sich dann ja... Bäh. Das macht einen ja wirklich unausstehlich ":
                 shopkeep "Sag ich doch"
                 return  
         $game.haggling[item_ID] += 1

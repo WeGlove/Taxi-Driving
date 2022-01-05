@@ -100,14 +100,13 @@ class Game:
         return passengers
     
     
-    def skip_a_character(amount=1):
+    def skip_a_character(self, amount=1):
         """
             Skips characters that would otherwise have ridden the taxi
         """
         for i in range(amount):
             if len(self.future_passengers_of_today) > 0:
-                self.current_passenger = random.choice(self.future_passengers_of_today)
-                self.future_passengers_of_today.remove(self.current_passenger)
+                self.future_passengers_of_today.remove(random.choice(self.future_passengers_of_today))
             else:
                 return
             
@@ -142,6 +141,7 @@ class Game:
         """
         for passenger in self.past_passengers_of_today:
             self.pools[passenger.pool].remove(passenger)
+        self.past_passengers_of_today = []
         self.current_day += 1
     
     def get_acquired_upgrades(self):
