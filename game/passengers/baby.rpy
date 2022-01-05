@@ -17,7 +17,7 @@ label baby:
                             "Dein Sitzleder zerkratzend schleifst du ihn aus deinem Wagen"
                             you "Und komm ja nicht wieder!"
                             "Du fährst ohne ihn weiter, sein Gehuele hörst du aber noch am nächsten Block."
-                            $current_passenger_stats.paying = - game.base_fare/4
+                            $current_passenger.paying = - game.base_fare/4
                             return
                         "Bei allem was heilig ist, hör bitte auf ich fahr dich ja schon":
                             "Der Mann grinst zurfrieden."

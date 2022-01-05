@@ -25,8 +25,7 @@
             "{i}\U+266A Crypto Mining!\U+266A{/i}"
             "{i}\U+266A Machen auch Sie ihr Strom zu Geld!\U+266A {/i}"
 
-        $ game.money += game.current_passenger.paying 
-
+       
         
         jump gameloop
     label out:
