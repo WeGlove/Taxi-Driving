@@ -21,6 +21,9 @@ label shop_staubsauger:
                 "Es nehmen":
                     $game.money -= game.price[item_ID]
                     $game.upgrades[item_ID] = True
+                    "Du hast einen Staubsauger gekauft"
+                    if game.upgrades["Putzlappen"]:
+                                jump awesome_kombo
                     return
                 "Ablehnen":
                     return
@@ -48,6 +51,18 @@ label shop_staubsauger:
                         shopkeep "Es ist eigentlich noch sehr viel mehr wert."
                         $game.options[item_ID][4] = True
                         $game.price[item_ID] += game.base_fare * 2
+                    "Es nehmen" if game.haggling[item_ID] == 1:
+                        if game.money >= game.item_cost:
+                            $game.money -= game.price[item_ID]
+                            $game.upgrades[item_ID] = True
+                            $game.friendliness += 2
+                            "Du hast einen Staubsauger gekauft"
+                            if game.upgrades["Putzlappen"]:
+                                jump awesome_kombo
+                            return
+                        else:
+                            "Du hast nicht genug Geld für einen Handstaubsauger."
+                            return
                 $game.haggling[item_ID] += 1
                 if (game.haggling[item_ID] < 2):
                     jump haggle_loop
@@ -60,9 +75,22 @@ label shop_staubsauger:
                         $game.money -= game.price[item_ID]
                         $game.upgrades[item_ID] = True
                         $game.friendliness += 2
+                        "Du hast einen Staubsauger gekauft"
+                        if game.upgrades["Putzlappen"]:
+                                jump awesome_kombo
                     "Ich lass es":
                         return
-                "Du hast einen Staubsauger gekauft"
+                
             else:
                 "Du hast nicht genug Geld für den Handststaubsauger"
             return
+
+    label awesome_kombo:
+            "{b} KOMBOBONUS {\b}"
+            "{b} KOMBOBONUS! {\b}"
+            "{b} KOMBOBONUS!! {\b}"
+            "{b} KOMBOBONUS!!! {\b}"
+            "Zusammen mit dem Lappen der Renigung entfaltet der legendäre Staubsauger von Peter Maffay seine wahre Kraft!"
+            "Die Menschen nehmen dein Taxi jetzt als blitzblank war!"
+            $game.friendliness += 1
+            return 

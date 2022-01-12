@@ -40,7 +40,7 @@ label baby:
                             "Ihr seid inzwischen am Spielplatz angekommen"
                             baby "Danke."
                             "Er gibt dir das Geld und zwei Schokotaler bevor er aussteigt."
-                            $current_passenger_stats["paid"] += game.base_fare / 2
+                            $current_passenger.paying += game.base_fare / 2
                         "Ich weiß, ich weiß, ich kenn das Gefühl":
                             "Der Mann beginnt noch mehr zu weinen!"
                             baby "{i}Wo, unsere Papa!?!{\i}"

@@ -46,6 +46,18 @@ label shop_zeitungen:
                         shopkeep "Klar. Aber nicht dieses Käseblatt"
                         $game.options[item_ID][4] = True
                         $game.price[item_ID] += game.base_fare * 2
+                    "Es nehmen" if game.haggling[item_ID] == 1:
+                        if game.money >= game.item_cost:
+                            $game.money -= game.price[item_ID]
+                            $game.upgrades[item_ID] = True
+                            $game.friendliness += 0.5
+                            "Du hast einen Haufen alter Zeitungen gekauft."
+                            "War es das Wert?"
+                            return
+                        else:
+                            "Du hast nicht gnug Geld für die Zeitungen."
+                            "Ist vielleicht auch besser so."
+                            return
                 $game.haggling[item_ID] += 1
                 if (game.haggling[item_ID] < 2):
                     jump haggle_loop_zeitung

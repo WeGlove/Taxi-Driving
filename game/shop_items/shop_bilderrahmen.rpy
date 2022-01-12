@@ -48,6 +48,19 @@ label shop_bilderrahmen:
                 "Ein Bild später"
                 shopkeep "Das ist gut geworden. Jetzt brauch' ich den Rahmen aber selbst."
                 return
+            "Es nehmen" if game.haggling[item_ID] == 1:
+                if game.money >= game.price[item_ID]:
+                    shopkeep "Gut, ich verkauf es dir für [item_cost] CRP"
+                    $game.money -= game.price[item_ID]
+                    $game.upgrades[item_ID] = True
+               
+                    "Du hast einen Bilderrahmen gekauft"
+                    return
+                else:
+                    "Du hast nicht genug Geld für den Bilderrahmen. Enttäuscht denkst du an all die Erinnerungen, die du darin nicht festhalten können wirst"
+                    return
+
+
         $game.haggling[item_ID] += 1
         if (game.haggling[item_ID] < 2):
                     jump haggle_loop_bilder   

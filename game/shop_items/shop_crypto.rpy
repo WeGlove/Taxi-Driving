@@ -56,6 +56,17 @@ label shop_crypto:
             "Kein Problem! Das zahlt sich dann ja... Bäh. Das macht einen ja wirklich unausstehlich ":
                 shopkeep "Sag ich doch"
                 return  
+            "Es nehmen" if game.haggling == 1:
+                if game.money >= game.price[item_ID]:
+                    $text_price = game.price[item_ID]
+                    $game.money -= game.price[item_ID]
+                    $game.upgrades[item_ID] = True
+                    $game.friendliness -= 1
+                    "Du hast einen Cryptominer gekauft gekauft"
+                    return
+                else:
+                    "Du hast nicht genug Geld für den Cryptominer. Vielleicht auch besser so..."
+                    return
         $game.haggling[item_ID] += 1
         if (game.haggling[item_ID] < 2):
                     jump haggle_loop_crypto      

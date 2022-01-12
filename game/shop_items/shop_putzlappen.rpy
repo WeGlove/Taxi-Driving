@@ -37,6 +37,18 @@ label shop_putzlappen:
             "... Endlos viele Möglichkeiten":
                 shopkeep"Wenn du das so sagst, sollte ich es vielleicht noch etwas teurer machen"
                 $game.price[item_ID] += game.base_fare
+            "Es nehmen" if game.haggling[item_ID] == 1:
+                if game.money >= game.item_cost:
+                    $game.money -= game.price[item_ID]
+                    $game.upgrades[item_ID] = True
+                    $game.friendliness += 3
+                    "Du hast einen Lappen gekauft"
+                    return
+                else:
+                    "Du hast nicht genug Geld für einen Lappen. Du Lappen."
+                    return
+    
+
         $game.haggling[item_ID] +=1
         if (game.haggling[item_ID] < 2):
                     jump haggle_loop_putze      
@@ -52,6 +64,6 @@ label shop_putzlappen:
                     return
             "Du hast einen Lappen gekauft"
     else:
-            "Du hast nicht genug Geld für den Cryptominer. Vielleicht auch besser so..."
+            "Du hast nicht genug Geld für einen Lappen. Du Lappen."
             return
     

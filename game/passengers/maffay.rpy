@@ -1,7 +1,7 @@
 ﻿define maffay = Character("Keine Ahnung")
 
 label maffay:
-    "Eine Frau mit Dreadlocks steigt in dein Taxi."
+    "Eine Frau mit rot geränderten Augen steigt in dein Taxi."
     maffay "Alter, ich bin grade so high, fahr mich einfach irgendwo hin"
     menu:
         "Dich weigern sie zu fahren":
