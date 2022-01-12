@@ -28,14 +28,14 @@ label captain:
         "Aye, Captain!":
             captain "Yarr, es war vor 20 Jahren, als ich noch Captain der Nusschale war"
             captain "Damals waren wir auf der Jagd nach der großen Flunder!"
-            captain "Fünf Monate hatten wir bei Wind und Wetter die Meere durchkreuzt um das Biest zu finden, aber es wollte sich einfach nicht zeigen"
+            captain "Aye, Fünf Monate hatten wir bei Wind und Wetter die Meere durchkreuzt um das Biest zu finden, aber es wollte sich einfach nicht zeigen"
             captain "Als uns dann die Vorräte zu neige gingen und wir drohten mit leerer Hand zurückzukehren fasste ich einen Plan."
             captain "Einer meiner Männer, das musst du dir mal vorstellen Leichtmatrose, hat versucht mein Schiff zu meutern"
-            captain "Ebenen jenen Mann band ich mit einem Seil fest und ließ ihn vor dem Schiff ins Wasser baumeln als Köder."
-            captain "Und siehe da Leichtmatorse! Die Flunder erschien um den armen Mann aus der Bedrängnis zu retten."
+            captain "Ebenen jenen Mann band ich mit einem Seil fest und ließ ihn vor dem Schiff ins Wasser baumeln, als Köder."
+            captain "Und siehe da Leichtmatorse! Die Flunder erschien' um den armen Mann aus der Bedrängnis zu retten, yarr!"
             captain "Aber just in dem Moment als ich die Harpune feuern wollte hörten wir Sirenen und ein Schiff erschien aus dem Nebel."
-            captain "Die Küstenwache hat mir danach die Lizenz zum Fischen auf Grund von Verstößen gegen die Menschenrechte entzogen..."
-            "Nachdem Der Captain seine Geschichte beendet hat wart ihr schon eine gute halbe Stunde auf dem Kneipenparplatz, wodurch du neinen nächsten Kunden verpasst."
+            captain "Aye, die Küstenwache hat mir danach die Lizenz zum Fischen auf Grund von Verstößen gegen die Menschenrechte entzogen..."
+            "Nachdem Der Captain seine Geschichte beendet hat wart ihr schon eine gute halbe Stunde auf dem Kneipenparkplatz, wodurch du neinen nächsten Kunden verpasst."
             $current_passenger.status["storytime"] = True
             $game.skip_a_character(1)
             $current_passenger.paying += game.base_fare * 0.75

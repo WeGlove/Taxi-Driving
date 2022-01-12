@@ -18,10 +18,12 @@ class Game:
         self.current_passenger = None # The passenger currently riding the taxi.
         self.future_passengers_of_today = [] # Passengers that are going to drive the taxi today.
         self.past_passengers_of_today = [] # Passengers that have been in the taxi today.
+        self.debt_collector = None # The current debt collector
         
         self.all_passengers = [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
                               [Passenger(name, "tier_2") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man"]] +\
-                              [Passenger(name, "esoteric") for name in ["test"]]
+                              [Passenger(name, "esoteric") for name in ["test"]] +\
+                              [Passenger(name, "debts") for name in ["passenger_debts"]]
         
         self.pools = {}
         
@@ -49,9 +51,11 @@ class Game:
         return{
             "tier_1": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
             "tier_2": [passenger for passenger in self.all_passengers if passenger.pool == "tier_2" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
-            "esoteric": [passenger for passenger in self.all_passengers if passenger.pool == "esoteric" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)]
-        } # The pools of passengers from which to build passenger lists. Constraint ein Character is in höchstens einem Pool
-        
+            "esoteric": [passenger for passenger in self.all_passengers if passenger.pool == "esoteric" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
+        } # The pools of passengers from which to build passenger lists. Constraint: ein Character is in höchstens einem Pool
+    
+    def get_debt_pool(self):
+        return [passenger for passenger in self.all_passengers if passenger.pool == "debts" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)]
     
     def passenger_fulfills_condition(self, passenger):
         for cond_passenger_name, cond_status in passenger.conditional.items():
@@ -66,6 +70,9 @@ class Game:
                 for status_key, status_value in cond_status.items():
                     if cond_passenger.status[status_key] != status_value:
                         return False
+            if "money" in cond_status.keys():
+                if not (cond_status["money"][0] <= self.money <= cond_status["money"][1]):
+                    return False
         return True
     
     def _get_passengers(self):
@@ -139,10 +146,16 @@ class Game:
         """
             End the current day.
         """
-        for passenger in self.past_passengers_of_today:
-            self.pools[passenger.pool].remove(passenger)
         self.past_passengers_of_today = []
         self.current_day += 1
+        
+    def get_debt_collector(self):
+        self.debt_collector = self.draw_from_pool(1, self.get_debt_pool())[0]
+        return self.debt_collector
+        
+    def finish_debt_collector(self):
+        self.past_passengers_of_today.append(self.debt_collector)
+        self.debt_collector.has_driven = True
     
     def get_acquired_upgrades(self):
         return[key for key in self.upgrades.keys() if self.upgrades[key]]
