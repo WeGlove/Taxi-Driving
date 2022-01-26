@@ -19,6 +19,7 @@ class Game:
         self.future_passengers_of_today = [] # Passengers that are going to drive the taxi today.
         self.past_passengers_of_today = [] # Passengers that have been in the taxi today.
         self.debt_collector = None # The current debt collector
+        self.number_of_debt_infractions = 0
         
         self.all_passengers = [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
                               [Passenger(name, "tier_2") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man"]] +\
@@ -72,6 +73,9 @@ class Game:
                         return False
             if "money" in cond_status.keys():
                 if not (cond_status["money"][0] <= self.money <= cond_status["money"][1]):
+                    return False
+            if "infractions" in cond_status.keys():
+                if not (cond_status["infractions"][0] <= self.number_of_debt_infractions <= cond_status["infractions"][1]):
                     return False
         return True
     
