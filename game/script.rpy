@@ -50,7 +50,7 @@ screen InventoryButtonScreen():
     frame:
         xalign 1.0 yalign 1.0
         vbox:
-            textbutton "Inventory" action Show("InventoryScreen")
+            textbutton "Inventar" action Show("InventoryScreen")
         
  
 
