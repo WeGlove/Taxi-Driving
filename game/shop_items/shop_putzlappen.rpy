@@ -11,6 +11,8 @@ label shop_putzlappen:
         "Es nehmen":
             $game.money -= game.price[item_ID]
             $game.upgrades[item_ID] = True
+            if game.upgrades["Staubsauger"]:
+                jump awesome_kombo
             return
         "Ablehnen":
            return
@@ -43,6 +45,8 @@ label shop_putzlappen:
                     $game.upgrades[item_ID] = True
                     $game.friendliness += 3
                     "Du hast einen Lappen gekauft"
+                    if game.upgrades["Staubsauger"]:
+                        jump awesome_kombo
                     return
                 else:
                     "Du hast nicht genug Geld für einen Lappen. Du Lappen."
@@ -60,6 +64,8 @@ label shop_putzlappen:
                     $game.money -= game.price[item_ID]
                     $game.upgrades[item_ID] = True
                     $game.friendliness += 3
+                    if game.upgrades["Staubsauger"]:
+                        jump awesome_kombo
                 "Ich lass es":
                     return
             "Du hast einen Lappen gekauft"
@@ -67,3 +73,4 @@ label shop_putzlappen:
             "Du hast nicht genug Geld für einen Lappen. Du Lappen."
             return
     
+ 

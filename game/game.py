@@ -9,6 +9,7 @@ class Game:
     friendliness = 0
     acquired_images = []
     favorite_passenger = ""
+    newspaper_monies = 0.25 *base_fare
 
     
     def __init__(self):
@@ -22,10 +23,11 @@ class Game:
         self.number_of_debt_infractions = 0
         
         self.all_passengers = [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
-                              [Passenger(name, "tier_2") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man"]] +\
+
+                              [Passenger(name, "tier_2") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man", "introvert"]] +\
                               [Passenger(name, "esoteric") for name in ["test"]] +\
                               [Passenger(name, "debts") for name in ["passenger_debts"]]
-        
+
         self.pools = {}
         
         
@@ -34,6 +36,7 @@ class Game:
         self.upgrades = {}
         self.haggling = {}
         self.price = {}
+        
         self.options = {}
         for item in self.item_list:
             self.upgrades[item] =  False
