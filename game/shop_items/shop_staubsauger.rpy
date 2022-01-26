@@ -91,6 +91,6 @@ label shop_staubsauger:
             "{b} KOMBOBONUS!! {\b}"
             "{b} KOMBOBONUS!!! {\b}"
             "Zusammen mit dem Lappen der Renigung entfaltet der legendäre Staubsauger von Peter Maffay seine wahre Kraft!"
-            "Die Menschen nehmen dein Taxi jetzt als blitzblank war!"
+            "Die Menschen nehmen dein Taxi jetzt als blitzblank wahr!"
             $game.friendliness += 1
             return 

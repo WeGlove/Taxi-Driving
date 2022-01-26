@@ -1,6 +1,7 @@
 ﻿define mime = Character("Pantomime")
 
 label mime:
+    $current_passenger.status["Nice_Mime"] = False
     "Eine Pantomime öffnet die Tür zu deinem Wagen."
     "Sie will einsteigen aber scheint gegen eine unsichtbare Wand zu stoßen."
     menu:
@@ -39,6 +40,7 @@ label mime:
     "Die Pantomime zahlt, aber als Sie austeigen will stößt sie den Kopf wieder an einer unsichtbaren Wand"
     "Du reichst herüber und mimst wie du die Türe öffnest"
     "Die Pantomime küsst dich auf die Wange und verlässt den Wagen."
+    $current_passenger.status["Nice_Mime"] = True
     return
     
 
