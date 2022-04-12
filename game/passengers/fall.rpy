@@ -3,7 +3,7 @@ define fall_fallschirm = Character("Ein Fallschirmspringer im Hintergrund")
 
 
 label passenger_fall:
-    $ = a, b, c = False, False, False
+    $ a, b, c = False, False, False
     "Du willst dich grade etwas entspannen, da klingelt dein Telefon"
     menu:
         "Abheben":
