@@ -9,7 +9,7 @@ class Game:
     friendliness = 0
     acquired_images = []
     favorite_passenger = ""
-    newspaper_monies = 0.25 *base_fare
+    newspaper_monies = 0.25 * base_fare
 
     
     def __init__(self):
@@ -20,10 +20,14 @@ class Game:
         self.future_passengers_of_today = [] # Passengers that are going to drive the taxi today.
         self.past_passengers_of_today = [] # Passengers that have been in the taxi today.
         self.debt_collector = None # The current debt collector
+        self.number_of_debt_infractions = 0
         
-        self.all_passengers = [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
-                              [Passenger(name, "tier_2") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man", "introvert"]] +\
-                              [Passenger(name, "esoteric") for name in ["test"]] +\
+
+        self.all_passengers = [Passenger(name, "tier_0") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man", "introvert"]] +\
+                              [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
+                              [Passenger(name, "tier_2") for name in ["introvert", "passenger_faustings"]] +\
+                              [Passenger(name, "esoteric") for name in ["test", "passenger_fall"]] +\
+
                               [Passenger(name, "debts") for name in ["passenger_debts"]]
 
         self.pools = {}
@@ -51,6 +55,7 @@ class Game:
     
     def refill_pools(self):
         return{
+            "tier_0": [passenger for passenger in self.all_passengers if passenger.pool == "tier_0" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
             "tier_1": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
             "tier_2": [passenger for passenger in self.all_passengers if passenger.pool == "tier_2" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
             "esoteric": [passenger for passenger in self.all_passengers if passenger.pool == "esoteric" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
@@ -75,6 +80,9 @@ class Game:
             if "money" in cond_status.keys():
                 if not (cond_status["money"][0] <= self.money <= cond_status["money"][1]):
                     return False
+            if "infractions" in cond_status.keys():
+                if not (cond_status["infractions"][0] <= self.number_of_debt_infractions <= cond_status["infractions"][1]):
+                    return False
         return True
     
     def _get_passengers(self):
@@ -84,7 +92,7 @@ class Game:
         if self.current_day == 0:
             return self.draw_from_pool(7, self.pools["tier_1"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
         elif self.current_day == 1:
-            return self.draw_from_pool(3, self.pools["tier_1"]) + self.draw_from_pool(3, self.pools["tier_2"])
+            return self.draw_from_pool(3, self.pools["tier_1"]) + self.draw_from_pool(2, self.pools["tier_0"]) + self.draw_from_pool(1, self.pools["tier_2"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
         else:
             return []
     
@@ -163,10 +171,13 @@ class Game:
         return[key for key in self.upgrades.keys() if self.upgrades[key]]
     
     def pay_passenger(self):
-        acquired_money =0
+        acquired_money = 0
         acquired_money += self.current_passenger.paying
         acquired_money += self.friendliness
         if self.current_passenger.call_label == self.favorite_passenger:
             acquired_money = acquired_money * 2
         self.money += acquired_money
         return acquired_money
+    
+    def force_character(self, name):
+        self.future_passengers_of_today = [self.get_passenger(name)] + self.future_passengers_of_today
