@@ -22,7 +22,6 @@ class Game:
         self.debt_collector = None # The current debt collector
         
         self.all_passengers = [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
-
                               [Passenger(name, "tier_2") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man", "introvert"]] +\
                               [Passenger(name, "esoteric") for name in ["test"]] +\
                               [Passenger(name, "debts") for name in ["passenger_debts"]]
