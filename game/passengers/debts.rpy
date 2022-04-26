@@ -2,7 +2,7 @@ define passenger_debts = Character("Der Praktikant")
 
 label passenger_debts_who:
     passenger_debts "ja ähh, ihr vertrautes Finanzinstitut schickt mich."
-    $game.current_passenger.stats["who"] = True
+    $game.debt_collector.status["who"] = True
     return
     
 label passenger_debts_engage:
@@ -21,7 +21,7 @@ label passenger_debts_engage:
                     passenger_debts "Ich... ähh, werde dann bescheid geben das der Herr Robby sich darum kümmert."
                     "Er verlässt deinen Wagen, sichtlich erleichtert."
                     return
-                "Wer schickt Sie denn?" if not game.current_passenger.stats["Who"]:
+                "Wer schickt Sie denn?" if not game.debt_collector.status["who"]:
                     call passenger_debts_who
                     jump passenger_debts_who_ret_1
                 "Ich hab jetzt keine Zeit für sowas. Können wir das nicht auf einen anderen Termin verschieben":
@@ -31,7 +31,7 @@ label passenger_debts_engage:
                     "Er verlässt deinen Wagen, sichtlich erleichtert."
                     return
         "Etwas 'Verwaltungstechnisches'?":
-            passenger_debts "Ja, Sie müssen sehen, Sie haben bei meiner Firma, ein leichtes ähh, Problem, in der Finaztverwaltung..."
+            passenger_debts "Ja, Sie müssen sehen, Sie haben bei meiner Firma, ein leichtes ähh, Problem, in der Finanzverwaltung..."
             passenger_debts "Sie... haben Schulden..."
             menu:
                 "Was interessiert mich das?":
@@ -77,12 +77,12 @@ label passenger_debts_engage:
                             passenger_debts "W-wenn, s-sie mich dann entschuldigen würden."
                             "Er verlässt deinen Wagen."
                             return.
-        "Wer schickt Sie denn?" if not game.current_passenger.stats["Who"]:
+        "Wer schickt Sie denn?" if not game.debt_collector.status["who"]:
             call passenger_debts_who
             jump passenger_debts_who_ret_2
 
 label passenger_debts:
-    $game.current_passenger.stats["who"] = False
+    $game.debt_collector.status["who"] = False
     "Was für ein schönes Gefühl." 
     "Du bist mit der Arbeit für heute fertig"
     "..."

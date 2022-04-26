@@ -5,14 +5,14 @@ label introvert:
     introvert "Zum Rathaus bitte, und beeilen Sie sich bitte, wenn Sie nichts dagegen haben."
     "Du nickst bestätigend und versuchst ein Gespräch zu initiieren"
     introvert "Bitte, versuchen Sie, wenn möglich, nicht mit mir zu reden, ich mag das nicht."
-    if game.upgrades["Zeitung"]:
+    if game.upgrades["Zeitungen"]:
         "Der Mann nimmt eine Zeitung auf und liest sie."
         $current_passenger.paying += 0.25 * game.base_fare
     else:
         "Der Mann nimmt ein Buch aus einer Tasche und beginnt zu lesen"
-    if game.get_passenger("Mime").has_driven:
-        if game.get_passenger("Mime").Status["Nice_Mime"]:
-            "Die Mime, mit der du kurzem gefahren bist erkennt dein Taxi und beginnt an einer roten Ampel eine kleine Aufführung zu deiner Belustigung"
+    if game.get_passenger("mime").has_driven:
+        if game.get_passenger("mime").Status["Nice_Mime"]:
+            "Die Pantomime, mit der du kurzem gefahren bist erkennt dein Taxi und beginnt an einer roten Ampel eine kleine Aufführung zu deiner Belustigung"
             menu:
                 "Den Passagier darauf aufmerksam machen":
                     "Der Mann atmet genervt aus und widmet sich schnell wieder dem,  was er vorher gemacht hat."
@@ -84,7 +84,7 @@ label introvert:
                 "Es vergeht einige Zeit, bis er bemerkt, dass ihr angekommen seid, sodass du deinen nächsten Kunden verpasst"
                 $game.skip_a_character()
                 introvert "Oh, ich hab gar nicht bemerkt, dass wir schon da sind! Das tut mir leid. Hier, fürs warten"
-                $current.passenger.paying += 5 * base_fare
+                $current_passenger.paying += 5 * base_fare
 
 
 

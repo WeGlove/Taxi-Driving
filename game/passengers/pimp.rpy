@@ -22,6 +22,7 @@ label passenger_faustings_neutral_start:
                             "Er wirkt jetzt etwas kühler dir gegenüber."
                             faustings "Fahr mich einfach wo ich hin will."
                             "Den Rest der Fahrt verbringt ihr schweigend."
+                            $current_passenger.paying += game.base_fare / 2
                             return
                         "Das passiert jedem glaube ich.":
                             faustings "Ich glaube meine Situation ist da anders. Ich bin Anführer einer Gang."
@@ -40,6 +41,7 @@ label passenger_faustings_neutral_start:
                             faustings "Ich glaube das führt zu nichts. Sie wollen nicht sehen wie ich denke."
                             "Ihr kommt an seinem Treffpunkt an."
                             faustings "Trotzdem Danke für die Unterhaltung"
+                            $current_passenger.paying += game.base_fare
                             return
                         "Ok, ich seh es ein, Sie haben ja recht.":
                             jump passenger_faustings_neutral_start_out
@@ -47,6 +49,7 @@ label passenger_faustings_neutral_start:
 label passenger_faustings_neutral_start_out:
     faustings "Danke, ich glaube das musste ich mal hören."
     faustings "Hier etwas extra für die Mühen."
+    $current_passenger.paying += game.base_fare * 2
     return
 
 label passenger_faustings_clown:
@@ -97,6 +100,7 @@ label passenger_faustings_annoy_him:
                 jump passenger_faustings_boss
             "Für den Rest der Fahrt die Klappen halten":
                 faustings "Hier ihr Geld"
+                $current_passenger.paying += game.base_fare / 2
                 return
             
                 
@@ -115,11 +119,13 @@ label passenger_faustings_brother:
                         "Ich verstehe was Sie meinen":
                             faustings "Danke, es ist gut mal mit jemandem über meine Probleme reden zu können, wissen Sie."
                             faustings "Danke das Sie sich die Zeit genommen haben."
+                            $current_passenger.paying += game.base_fare * 2
                             return
                         "Warum hören Sie nicht auf?":
                             faustings "Das kann ich nicht mit meinem Gewissen vereinbaren."
                             faustings "..."
                             faustings "Es tut mir Leid, lassen Sie mich bitte hier schon raus."
+                            $current_passenger.paying += game.base_fare
                             return
                 "Es ist also ein Minderwertigkeitskomplex":
                     faustings "Kann man so sagen ja."
@@ -128,11 +134,13 @@ label passenger_faustings_brother:
                         "Wenn ich ihn das nächste mal sehe könnte ich ja mit ihm reden.":
                             faustings "Ich bin ihnen was schuldig."
                             faustings "Hier etwas extra, für die Mühen."
+                            $current_passenger.paying += game.base_fare * 2
                             return
                         "Mit so Leuten würde ich auch nicht unbedingt was zu tun haben wollen":
-                            "Er seutzt."
+                            "Er seufzt."
                             faustings "Ich kann es ja schon irgendwo nachvollziehen."
                             "Ihr habt nichts weiter zu bereden un kommt an seinem Trefpunkt an."
+                            $current_passenger.paying += game.base_fare
                             return
                 "Wieso lassen sie ihn nicht einsteigen?":
                     faustings "Als ob ich meinen Bruder in solche Gefahren bringe, nein, nein, er hat etwas besseres verdient"
@@ -147,10 +155,12 @@ label passenger_faustings_brother:
                                     "Ihr kommt an seinem Treffpunkt an."
                                     faustings "Ich bin ihnen was schuldig."
                                     faustings "Hier etwas extra, für die Mühen."
+                                    $current_passenger.paying += game.base_fare * 2
                                     return
                                 "Nein, ich habe besseres zu tun.":
                                     faustings "Oh..."
                                     "Peinlich schweigend, sitzt dein Fahrgast den Rest der Zeit ab."
+                                    $current_passenger.paying += game.base_fare
                                     return
                         "Die Lusche?":
                             "Dein blaues Auge heilt nur langsam."
@@ -198,6 +208,7 @@ label passenger_faustings_unfriendly:
                                     faustings "Dachte ich mir."
                                     "Du fährst den Gangboss zu seinem Treffpunkt."
                                     faustings "Vielen Dank. Hier ihr Geld. Wie gesagt, nur so böse wie es sein muss."
+                                    $current_passenger.paying += game.base_fare
                                     return
                                 "Nein, ich bleibe dabei.":
                                     "Deinen toten Körper finden Polizeiroboter ein paar Monate später in einem Heizungskeller."
@@ -213,6 +224,7 @@ label passenger_faustings_unfriendly:
             "Ihr kommt an seinem Treffpunkt an."
             faustings "Hier etwas von deinem Geld."
             faustings "Überleg dir nächstes Mal besser mit wem du dich anlegst."
+            $current_passenger.paying += game.base_fare / 4
             return
 
 label passenger_faustings_boss:
@@ -257,16 +269,19 @@ label passenger_faustings_money:
                     menu: 
                         "Ja, ich brauche das Geld":
                             faustings "Sehr gut. Ich bleibe im Kontakt mit dir."
+                            $current_passenger.paying += game.base_fare
                             return
                         "Nein, ich hab es mir anders überlegt.":
                             faustings "Gut, du bist also bei Verstand"
                             "Er lacht"
                             faustings "Ich hatte schon daran gezweifelt."
                             faustings "Na dann danke für die Fahrt."
+                            $current_passenger.paying += game.base_fare
                             return
                 "Ich habe falsche Routen abgefahren um bei Gästen mehr zu kassieren.":
                     faustings "Ahh. Ok. Nun da wir ja sowieso grade angekommen sind hier ist dein Geld."
                     "Er gibt dir nur die Hälfte deines Fahpreises"
+                    $current_passenger.paying += game.base_fare / 2
                     return
                 "Ich hab im Supertmakrt einen Loli gekauft versehentlich"
                 "Ich habe Einrad fahrend ein Driveby gemacht und dabei 5 Menschen getötet":
@@ -283,6 +298,7 @@ label passenger_faustings_money:
                                 "Ich hab die Liebe meines Lebens gefunden und eine glückliche Familie fernab jedes Verbrechens gegründet.":
                                     faustings "..."
                                     faustings "Nun, danke für die Fahrt"
+                                    $current_passenger.paying += game.base_fare
                                     return
                                 "Ich hab mit meiner Gang eine Rakete gekapert und bin damit bis zum Mars. Da haben wir die Marsmenschen tyranisiert.":    
                                     faustings "Du Tier! Du bist ein echter Gangbanger"
@@ -290,10 +306,12 @@ label passenger_faustings_money:
                                         "Hab ich doch gesagt!":
                                             faustings "Ich werd an dich denken wenn ich mal einen echt harten Kerl brauche."
                                             faustings "Hier danke fürs fahren lass es dir gut gehen."
+                                            $current_passenger.paying += game.base_fare * 2
                                             return
                                         "Wirklich?":
                                             faustings "Nein, aber es war eine amüsante Geschichte."
                                             faustings "Hier danke fürs fahren lass es dir gut gehen."
+                                            $current_passenger.paying += game.base_fare * 2
                                             return
                         "Ich hab Drogen an Minderjährige verkauft":
                             jump passenger_faustings_money_out
@@ -308,6 +326,7 @@ label passenger_faustings_money:
                     faustings "Ich glaube ihr Beruf ist genau der richtige für Sie."
                     faustings "Glauben Sie mir in einer Gang zu sein bringt weniger Prestige mit sich als man glaubt."
                     faustings "Ah, da sind wir ja auch schon. Vielen Dank für die Fahrt."
+                    $current_passenger.paying += game.base_fare
                     return
                 "Ich will das mich Leute respektiern wie Sie":
                     "Er schaut dich bemitleidend an."
@@ -316,12 +335,14 @@ label passenger_faustings_money:
                     faustings "Ich bin sehr dankbar dafür das Sie fahren."
                     faustings "Ah das sind wir ja auch schon."
                     faustings "Danke für das nette Gespräch."
+                    $current_passenger.paying += game.base_fare
                     return
     
 label passenger_faustings_money_out:
     "Plötzlich versteift er sich."
     faustings "Naja, ja wie dem auch sei. Das wir nicht mit dem Einsteigen in meine Gang."
     faustings "Trotzdem danke für die Fahrt."
+    $current_passenger.paying += game.base_fare
     return
  
 label passenger_faustings:

@@ -11,7 +11,7 @@ label passenger_fall:
             fall_guy "Entschuldigung. Ich stecke hier etwas in einer Zwickmühle. Könntest du mir zufällig helfen?"
             menu:
                 "Nein":
-                    fall_guy "Was? Ich sschwebe, oder eher fliege hier grade in Lebensgefahr. Bitte helfen Sie mir."
+                    fall_guy "Was? Ich schwebe, oder eher fliege hier grade in Lebensgefahr. Bitte helfen Sie mir."
                     menu:
                         "Ok, ich mach's ja":
                             fall_guy "Danke."
@@ -49,7 +49,7 @@ label passenger_fall_start:
     $ item_count = 0
     fall_guy "Ok also zusammenfassend:"
     fall_guy "Ich fliege grade in einer ungesunden Geschwindigkeit nach oben."
-    fall_guy "Ich habe 8 Objekte um mich die mir beim Überleben helfen könnten."
+    fall_guy "Ich habe 8 Objekte um mich, die mir beim Überleben helfen könnten." # TODO describe scene around the guy
     label passenger_fall_item:
     if item_count >=8:
         jump passenger_fall_fail
@@ -92,14 +92,14 @@ label passenger_fall_start:
             jump passenger_fall_item
             
         "Den Komet" if not items[4]:
+            $items[4] = True
             if items_success[5]:
                 $items_success[4] = True
-                fall_guy "Danke der Komethandschuhe hab ich kein Problem ihn aufzusammeln!"
+                fall_guy "Dank der Komethandschuhe hab ich kein Problem ihn aufzusammeln!"
                 jump passenger_fall_item
             fall_guy "Mit meinen bloßen Händen fass ich das garantiert nicht an."
             fall_guy "Man könnte es aber vielleicht als Ersatz für den Kern des Schwerkraftbeschleumigers verwenden."
             jump passenger_fall_item
-            $items[4] = True
         "Den Fallschirmspringer" if not items[5]:
             $items[5] = True
             if items_success[7]:

@@ -9,7 +9,7 @@ class Game:
     friendliness = 0
     acquired_images = []
     favorite_passenger = ""
-    newspaper_monies = 0.25 *base_fare
+    newspaper_monies = 0.25 * base_fare
 
     
     def __init__(self):
@@ -53,7 +53,7 @@ class Game:
     
     def refill_pools(self):
         return{
-            "tier_0": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
+            "tier_0": [passenger for passenger in self.all_passengers if passenger.pool == "tier_0" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
             "tier_1": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
             "tier_2": [passenger for passenger in self.all_passengers if passenger.pool == "tier_2" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
             "esoteric": [passenger for passenger in self.all_passengers if passenger.pool == "esoteric" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
@@ -90,7 +90,7 @@ class Game:
         if self.current_day == 0:
             return self.draw_from_pool(7, self.pools["tier_1"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
         elif self.current_day == 1:
-            return self.draw_from_pool(3, self.pools["tier_1"]) + self.draw_from_pool(3, self.pools["tier_0"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
+            return self.draw_from_pool(3, self.pools["tier_1"]) + self.draw_from_pool(2, self.pools["tier_0"]) + self.draw_from_pool(1, self.pools["tier_2"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
         else:
             return []
     
