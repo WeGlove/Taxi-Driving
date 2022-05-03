@@ -22,7 +22,7 @@ label passenger_debts_engage:
                     "Er verlässt deinen Wagen, sichtlich erleichtert."
                     return
                 "Wer schickt Sie denn?" if not game.debt_collector.status["who"]:
-                    call passenger_debts_who
+                    call passenger_debts_who from _call_passenger_debts_who
                     jump passenger_debts_who_ret_1
                 "Ich hab jetzt keine Zeit für sowas. Können wir das nicht auf einen anderen Termin verschieben":
                     passenger_debts "Ja ähh, also, öhm, das war so jetzt auch eigentlich nicht geplant... aber äh, wann würde es denn gehen."
@@ -78,7 +78,7 @@ label passenger_debts_engage:
                             "Er verlässt deinen Wagen."
                             return.
         "Wer schickt Sie denn?" if not game.debt_collector.status["who"]:
-            call passenger_debts_who
+            call passenger_debts_who from _call_passenger_debts_who_1
             jump passenger_debts_who_ret_2
 
 label passenger_debts:

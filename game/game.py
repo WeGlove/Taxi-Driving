@@ -27,7 +27,6 @@ class Game:
                               [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
                               [Passenger(name, "tier_2") for name in ["introvert", "passenger_faustings"]] +\
                               [Passenger(name, "esoteric") for name in ["test", "passenger_fall"]] +\
-
                               [Passenger(name, "debts") for name in ["passenger_debts"]]
 
         self.pools = {}

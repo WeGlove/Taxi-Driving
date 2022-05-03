@@ -38,7 +38,7 @@ label shop_bilderrahmen:
                 
                 
                 $game.price[item_ID] += 2* game.base_fare
-            "Den momentanen Preis akzeptieren" if game.game.options[item_ID][1]:
+            "Den momentanen Preis akzeptieren" if game.options[item_ID][1]:
                     $game.money -= game.price[item_ID]
                     $game.upgrades[item_ID] = True
                     return

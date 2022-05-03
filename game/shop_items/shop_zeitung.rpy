@@ -35,7 +35,7 @@ label shop_zeitungen:
                         shopkeep "Ja, stimmt schon."
                         $game.options[item_ID][1] = True
                         $game.price[item_ID] -= game.base_fare
-                    "Die würd ich morgens in jedem Papiermüll umsonst bekommen." if not options[item_ID][2]:
+                    "Die würd ich morgens in jedem Papiermüll umsonst bekommen." if not game.options[item_ID][2]:
                         shopkeep "Du siehst auch wie jemand aus der morgens im Müll wühlt."
                         $game.options[item_ID][2] = True
                         $game.price[item_ID] += game.base_fare

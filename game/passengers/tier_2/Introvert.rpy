@@ -12,7 +12,7 @@ label introvert:
         "Der Mann nimmt ein Buch aus einer Tasche und beginnt zu lesen"
     if game.get_passenger("mime").has_driven:
         if game.get_passenger("mime").status["Nice_Mime"]:
-           "Die Pantomime, mit der du vor kurzem gefahren bist, erkennt dein Taxi und beginnt an einer roten Ampel eine kleine Aufführung zu deiner Belustigung"
+            "Die Pantomime, mit der du vor kurzem gefahren bist, erkennt dein Taxi und beginnt an einer roten Ampel eine kleine Aufführung zu deiner Belustigung"
             menu:
                 "Den Passagier darauf aufmerksam machen":
                     "Der Mann atmet genervt aus und widmet sich schnell wieder dem,  was er vorher gemacht hat."
