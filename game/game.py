@@ -1,6 +1,7 @@
 import random
 import json
 from passenger import Passenger
+import time
 
 class Game:
     """
@@ -23,6 +24,7 @@ class Game:
         self.past_passengers_of_today = [] # Passengers that have been in the taxi today.
         self.debt_collector = None # The current debt collector
         self.number_of_debt_infractions = 0
+        self.events = [] # A list of events that have happened in the game
         
         self.all_passengers = [Passenger(name, "tier_0") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man", "introvert"]] +\
                               [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
@@ -67,6 +69,7 @@ class Game:
         """
         Adds money to the players total
         """
+        self.set_event("add_money", {"amount": amount})
         self.money += amount
 
     def get_base_fare(self):
@@ -87,8 +90,12 @@ class Game:
             if passenger.call_label == name:
                 return passenger
         return None #TODO throw exception here!
+
+    def set_event(self, eve_id, context={}):
+        self.events.append({"id": eve_id, "context": context, "time": time.time()})
     
     def refill_pools(self):
+        self.set_event("refill_pools", context={})
         return{
             "tier_0": [passenger for passenger in self.all_passengers if passenger.pool == "tier_0" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
             "tier_1": [passenger for passenger in self.all_passengers if passenger.pool == "tier_1" if not passenger.has_driven and self.passenger_fulfills_condition(passenger)],
@@ -155,6 +162,7 @@ class Game:
         """
             Skips characters that would otherwise have ridden the taxi
         """
+        self.set_event("skip a char", context={})
         for i in range(amount):
             if len(self.future_passengers_of_today) > 0:
                 self.future_passengers_of_today.remove(random.choice(self.future_passengers_of_today))
@@ -165,6 +173,7 @@ class Game:
         """
             Set up for the current day.
         """
+        self.set_event("start_day", context={})
         self.pools = self.refill_pools()
         self.future_passengers_of_today = self._get_passengers()
         
@@ -175,6 +184,7 @@ class Game:
         if self.current_passenger is not None:
             self.current_passenger.has_driven = True
         self.current_passenger = random.choice(self.future_passengers_of_today)
+        self.set_event("next_passenger", context={"Next": self.current_passenger.call_label})
         self.future_passengers_of_today.remove(self.current_passenger)
         self.past_passengers_of_today.append(self.current_passenger)
         return self.current_passenger
@@ -189,15 +199,18 @@ class Game:
         """
             End the current day.
         """
+        self.set_event("finish_day", context={"OldDay": self.current_day, "NewDay": self.current_day + 1})
         self.past_passengers_of_today = []
         self.current_day += 1
         
     def get_debt_collector(self):
         self.debt_collector = self.draw_from_pool(1, self.get_debt_pool())[0]
+        self.set_event("get_debt_colector", context={"Name":self.debt_collector.call_label})
         return self.debt_collector
         
     def finish_debt_collector(self):
         self.past_passengers_of_today.append(self.debt_collector)
+        self.set_event("finish_debt_colector", context={"Name": self.debt_collector.call_label})
         self.debt_collector.has_driven = True
     
     def get_acquired_upgrades(self):
@@ -209,8 +222,14 @@ class Game:
         acquired_money += self.friendliness
         if self.current_passenger.call_label == self.favorite_passenger:
             acquired_money = acquired_money * 2
+        self.set_event("pay_passenger", 
+        context={"Name": self.current_passenger.call_label, 
+                 "Pay":self.current_passenger.paying,
+                 "MoneyBefore": self.money,
+                 "MoneyAfter": self.money + acquired_money})
         self.money += acquired_money
         return acquired_money
     
     def force_character(self, name):
+        set_event("force_char", context={"Name": name})
         self.future_passengers_of_today = [self.get_passenger(name)] + self.future_passengers_of_today
