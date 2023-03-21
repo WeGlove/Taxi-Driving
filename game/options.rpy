@@ -25,7 +25,7 @@ define gui.show_name = True
 
 define config.version = "0.4"
 
-##Is Rollback allowed?
+##Is Rollback allowed? To disable back button set False
 define config.rollback_enabled = True
 
 

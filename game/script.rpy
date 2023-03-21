@@ -41,7 +41,7 @@ screen BilderrahmenScreen():
             vbox:
                 text "Wähle ein Bild um es in den Bilderrahmen zu füllen. Dieser Passagier wird dir das doppelte zahlen! WARNUNG: DIESER EFFEKT VERDOPPELT IM MOMENT AUCH NEGATIVE  WERTE"
                 for photo in acquired:
-                    textbutton photo action SetVariable("game.favorite_passenger", photo)
+                    textbutton photo action SetVariable("game.get_favorite_passenger()", photo)
         frame:
             xalign 0.5 yalign 0.9
             textbutton "Bilderrahmen-Menü verlassen" action Hide("BilderrahmenScreen")
@@ -57,7 +57,7 @@ screen InventoryButtonScreen():
 label start:
     "Du bist ein Taxifahrer."
 
-    $base_fare = game.base_fare
+    $base_fare = game.get_base_fare()
 
     show screen MoneyScreen
     show screen InventoryButtonScreen
@@ -66,12 +66,12 @@ label start:
     
     label day_loop:
         call day from _call_day
-        if game.current_day < game.number_of_days:
+        if game.get_current_day() < game.get_number_of_days():
             jump day_loop
    
     "Das ist alles für den Moment. Schau später wieder vorbei!"
 
-    # This ends the game.
+    # GAME ENDS HERE
 
     return
 

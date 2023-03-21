@@ -3,6 +3,9 @@ import json
 from passenger import Passenger
 
 class Game:
+    """
+    The general controlling class for the game.
+    """
     
     base_fare = 20
     number_of_days = 2
@@ -14,7 +17,6 @@ class Game:
     
     def __init__(self):
         self.money = 0 # The current amount of money the player has
-        
         self.current_day = 0 # The current day of the game. Starts at zero
         self.current_passenger = None # The passenger currently riding the taxi.
         self.future_passengers_of_today = [] # Passengers that are going to drive the taxi today.
@@ -22,7 +24,6 @@ class Game:
         self.debt_collector = None # The current debt collector
         self.number_of_debt_infractions = 0
         
-
         self.all_passengers = [Passenger(name, "tier_0") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man", "introvert"]] +\
                               [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
                               [Passenger(name, "tier_2") for name in ["introvert", "passenger_faustings"]] +\
@@ -30,7 +31,6 @@ class Game:
                               [Passenger(name, "debts") for name in ["passenger_debts"]]
 
         self.pools = {}
-        
         
         """Shop Items"""
         self.item_list = ["Staubsauger", "Bilderrahmen",  "Crypto Mining", "Zeitungen", "Putzlappen"]
@@ -44,6 +44,42 @@ class Game:
             self.haggling[item] = 0
             self.price[item] = 2*self.base_fare
             self.options[item] = [False, False, False, False, False]
+
+    def get_current_day(self):
+        """
+        Returns the current day
+        """
+        return self.current_day
+
+    def get_number_of_days(self):
+        """
+        Returns the total number of day
+        """
+        return self.number_of_days
+
+    def get_money(self):
+        """
+        Returns the current amount of money the player has.
+        """
+        return self.money
+
+    def add_money(self, amount):
+        """
+        Adds money to the players total
+        """
+        self.money += amount
+
+    def get_base_fare(self):
+        """
+        Returns the base amount of money a passenger should pay when riding the Taxi
+        """
+        return self.base_fare
+
+    def get_fav_passenger(self):
+        """
+        Returns the favorite passenger of the player
+        """
+        return self.favorite_passenger
             
     def get_passenger(self, name):
         """Returns a passenger of a given ID"""
@@ -115,7 +151,6 @@ class Game:
                 passengers.append(passenger)
         return passengers
     
-    
     def skip_a_character(self, amount=1):
         """
             Skips characters that would otherwise have ridden the taxi
@@ -149,7 +184,6 @@ class Game:
             Whether the day is finished after a passenger has ridden in the car.
         """
         return len(self.future_passengers_of_today) == 0
-    
     
     def finish_day(self):
         """
