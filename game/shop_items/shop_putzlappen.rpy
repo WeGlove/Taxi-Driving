@@ -22,25 +22,26 @@ label shop_putzlappen:
             "Das ist ein Lappen..." if not game.options[item_ID][0]:
                 shopkeep "Und noch so viel mehr, wenn man ihn richtig einsetzt. Wenn ich es mir recht überlege ist der Preis sogar noch zu billig" 
                 $game.options[item_ID][0] = True
-                $game.price[item_ID] += game.base_fare
+                $game.price[item_ID] += item_base_cost * 0.25
             "Wie war das mit den Vitrinen?" if not game.options[item_ID][1]:
                 shopkeep "Na gut vielleicht ist der Preis ein {i}bisschen{/i} übertrieben."
                 $game.options[item_ID][1] = True
-                $game.price[item_ID] -=game.base_fare
+                $game.price[item_ID] -= item_base_cost * 0.25
             "Sir. Das ist ein {i}Lappen{/i}" if game.options[item_ID][0]:
                 shopkeep "Ich bin {b}enttäuscht{/b} von deinem Mangel an Vorstellungsvermögen. Du kannst ihn zum Beispiel auch als Kopftuch verwenden. Oder als Taschentuch. So viele Möglichkeiten. Diese Elabnoration ist übrigens nicht um sonst"
-                $game.price[item_ID] += game.base_fare
+                $game.price[item_ID] += item_base_cost * 0.25
             "Der ist dann doch benutzt, oder?" if game.options[item_ID][1]:
                 shopkeep "Vielleicht kann ich an dem Preis doch noch was machen"
-                $game.price[item_ID] -= game.base_fare
+                $game.price[item_ID] -= item_base_cost * 0.25
             "So viele Möglichkeiten..." if not game.options[item_ID][2]:
                 $game.options[item_ID][2] = True
-                shopkeep "Ja. Ein Lappen kann schon nützlich sein."
+                shopkeep "Ja. Ein Lappen kann schon nützlich sein... Und für den Nutzen kannst du auch bezahlen."
+                $game.price[item_ID] += item_base_cost * 0.25
             "... Endlos viele Möglichkeiten":
                 shopkeep"Wenn du das so sagst, sollte ich es vielleicht noch etwas teurer machen"
-                $game.price[item_ID] += game.base_fare
+                $game.price[item_ID] += item_base_cost * 0.25
             "Es nehmen" if game.haggling[item_ID] == 1:
-                if game.money >= game.item_cost:
+                if game.money >= game.price[item_ID]:
                     $game.money -= game.price[item_ID]
                     $game.upgrades[item_ID] = True
                     $game.friendliness += 3
@@ -56,7 +57,7 @@ label shop_putzlappen:
         $game.haggling[item_ID] +=1
         if (game.haggling[item_ID] < 2):
                     jump haggle_loop_putze      
-    if game.money >= game.item_cost:
+    if game.money >= game.price[item_ID]:
             $text_price = game.price[item_ID]
             shopkeep "Gut, ich verkauf es dir für [text_price] CRP"
             menu:

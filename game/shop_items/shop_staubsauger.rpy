@@ -33,15 +33,15 @@ label shop_staubsauger:
                     "Aber schau mal auf das Preischild!" if not game.options[item_ID][0]:
                         shopkeep "Na gut, hab es eben etwas billiger bekommen"
                         $game.options[item_ID][0] = True
-                        $game.price[item_ID] -= game.base_fare
+                        $game.price[item_ID] -= item_base_cost * 0.25
                     "Dreh mal um, dass hat doch bestimmt Kratzer" if not game.options[item_ID][1]:
-                        shopkeep "Ja, ja, ok ist secon hand, der geht an dich."
+                        shopkeep "Ja, ja, ok ist second hand, der geht an dich."
                         $game.options[item_ID][1] = True
-                        $game.price[item_ID] -= game.base_fare
+                        $game.price[item_ID] -= item_base_cost * 0.25
                     "Schau mal auf das Baujahr, das sieht ja schon ewig alt aus." if not game.options[item_ID][2]:
                         shopkeep "Genau, das macht es antik, und damit eigentlich teurer."
                         $game.options[item_ID][2] = True
-                        $game.price[item_ID] += game.base_fare
+                        $game.price[item_ID] += item_base_cost * 0.25
                     "Das Ding hab ich doch schon im Supermarkt billiger gesehen." if not game.options[item_ID][3]:
                         shopkeep "Na dann geh doch in den Supermarkt"
                         $game.options[item_ID][3] = True
@@ -50,7 +50,7 @@ label shop_staubsauger:
                         shopkeep "Mir ist grade auch wieder eingefallen, das hier ist ein Erbstück des späten Künstlers Hanswurst."
                         shopkeep "Es ist eigentlich noch sehr viel mehr wert."
                         $game.options[item_ID][4] = True
-                        $game.price[item_ID] += game.base_fare * 2
+                        $game.price[item_ID] += item_base_cost
                     "Es nehmen" if game.haggling[item_ID] == 1:
                         if game.money >= game.item_cost:
                             $game.money -= game.price[item_ID]
@@ -90,7 +90,7 @@ label shop_staubsauger:
             "{b} KOMBOBONUS! {\b}"
             "{b} KOMBOBONUS!! {\b}"
             "{b} KOMBOBONUS!!! {\b}"
-            "Zusammen mit dem Lappen der Renigung entfaltet der legendäre Staubsauger von Peter Maffay seine wahre Kraft!"
+            "Zusammen mit dem Lappen der Renigung entfaltet der legendäre Staubsauger des Hanswurst seine wahre Kraft!"
             "Die Menschen nehmen dein Taxi jetzt als blitzblank wahr!"
             $game.friendliness += 1
             return 

@@ -30,22 +30,24 @@ label shop_zeitungen:
                     "Aber die sind doch schon Jahre alt!" if not game.options[item_ID][0]:
                         shopkeep "Na, eben. Es waren die Nachrichten, jetzt sind es Geschichtsbücher!"
                         $game.options[0] = True
-                        $game.price[item_ID] -= game.base_fare
+                        $game.price[item_ID] -= item_base_cost * 0.25
                     "Da sind ja Kaffeeflecken drauf!" if not game.options[item_ID][1]:
                         shopkeep "Ja, stimmt schon."
                         $game.options[item_ID][1] = True
-                        $game.price[item_ID] -= game.base_fare
+                        $game.price[item_ID] -= item_base_cost * 0.25
                     "Die würd ich morgens in jedem Papiermüll umsonst bekommen." if not game.options[item_ID][2]:
                         shopkeep "Du siehst auch wie jemand aus der morgens im Müll wühlt."
                         $game.options[item_ID][2] = True
-                        $game.price[item_ID] += game.base_fare
+                        $game.price[item_ID] += item_base_cost * 0.25
                     "Darfst du die überhaupt verkaufen?" if not game.options[item_ID][3]:
                         shopkeep "Natürlich. Ich stehe über dem Gesetz."
                         $game.options[item_ID][3] = True
                     "Liest du gerne Zeitung?" if not game.options[item_ID][4]:
-                        shopkeep "Klar. Aber nicht dieses Käseblatt"
+                        shopkeep "Klar. Aber nicht dieses Käseblatt. Allein für diese Frage solltest du drauf bezahlen müssen."
+                        shopkeep "Aber was rede ich denn da?"
+                        shopkeep "Es ist ja {i}mein{/i} Laden. Du {b}musst{/b} mehr dafür bezahlen!"
                         $game.options[item_ID][4] = True
-                        $game.price[item_ID] += game.base_fare * 2
+                        $game.price[item_ID] += item_base_cost * 0.25
                     "Es nehmen" if game.haggling[item_ID] == 1:
                         if game.money >= game.item_cost:
                             $game.money -= game.price[item_ID]

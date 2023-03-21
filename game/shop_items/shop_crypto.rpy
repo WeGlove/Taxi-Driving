@@ -36,22 +36,22 @@ label shop_crypto:
 
             "Wenn du das Ding hast. Bist letztendlich dann nicht du unausstehlich?" if not game.options[item_ID][0]:
                 $game.options[item_ID][0] = True
-                $game.price[item_ID] -= base_fare
+                $game.price[item_ID] -= item_base_cost *0.5
                 $text_price = game.price[item_ID]
                 shopkeep "Wenn du es so sagst, will ich es eigentlich gar nicht mehr. Ich überlass es dir für  [text_price]"
                 $game.options[item_ID][0] = True
-                $game.price[item_ID] -= game.base_fare
+                
             "Ne. Ich glaub ich lass es dir. Unaustehlicher." if game.options[item_ID][0]:
                             
-                $game.price[item_ID] -= game.base_fare
+                $game.price[item_ID] -= item_base_cost *0.25
                 $text_price = game.price[item_ID]
                 shopkeep "Bitte, ich geb es dir für [text_price] "
             "Kein Problem! Das Geld hab' ich dann mit meinem Crypto Investment gleich wieder drin!" if not game.options[item_ID][1]:
-                $game.price[item_ID] += game.base_fare
+                $game.price[item_ID] += item_base_cost * 0.5
                 $game.options[item_ID][1]  = True
                 shopkeep "Sag ich doch. {i}Unausstehlich.{/i} Nah, wenn du sooo viel damit verdienst macht's dir doch bestimmt nichts aus, noch was draufzulegen?"
             "Selbst das hab ich in ein paar Tagen mit dem Ding wieder drin!" if game.options[item_ID][1]:
-                $game.price[item_ID]+= game.base_fate
+                $game.price[item_ID]+= item_base_cost *0.5
                 shopkeep "Unausstehlich {b}und{/b} lernresistent. Immerhin kannst du das Ding dann ja auch gerne noch teurer haben wenn's so wertvoll ist."
             "Kein Problem! Das zahlt sich dann ja... Bäh. Das macht einen ja wirklich unausstehlich ":
                 shopkeep "Sag ich doch"
