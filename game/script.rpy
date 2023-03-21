@@ -1,21 +1,20 @@
 ﻿# The script of the game goes in this file.
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
 init python:
     from game import Game
-    from game import Game as renpyisgreat
     game = Game()
 
 define you = Character("Du")
 
+# Shows the Money the Charater currently has
 screen MoneyScreen():
     frame:
         xalign 0.5 ypos 50
         vbox:
             text "[game.money] CRP"
 
+
+# Shows the items the player currently has
 screen InventoryScreen():
     tag InventoryScreen
     $ test = game.get_acquired_upgrades()
@@ -28,7 +27,8 @@ screen InventoryScreen():
                     textbutton "Bilderrahmen" action Show("BilderrahmenScreen")
                 else:
                     text item
-                
+
+# Shows an image of the players favorite chars.   
 screen BilderrahmenScreen():
     tag BilderrahmenScreen
     frame:
@@ -51,17 +51,13 @@ screen InventoryButtonScreen():
         xalign 1.0 yalign 1.0
         vbox:
             textbutton "Inventar" action Show("InventoryScreen")
-        
  
 
+# GAME STARTS HERE
 label start:
     "Du bist ein Taxifahrer."
 
-    show screen InventoryScreen
-    hide screen InventoryScreen
-
-    $ base_fare = game.base_fare
-    
+    $base_fare = game.base_fare
 
     show screen MoneyScreen
     show screen InventoryButtonScreen
