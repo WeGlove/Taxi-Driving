@@ -3,7 +3,10 @@
 label maffay:
 
 
+
+
     $current_passenger.paying = game.get_base_fare()
+
 
     "Eine Frau mit rot geränderten Augen steigt in dein Taxi."
     maffay "Alter, ich bin grade so high, fahr mich einfach irgendwo hin"

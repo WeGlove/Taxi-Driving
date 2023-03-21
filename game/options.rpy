@@ -25,6 +25,9 @@ define gui.show_name = True
 
 define config.version = "0.4"
 
+##Is Rollback allowed? To disable back button set False
+define config.rollback_enabled = True
+
 
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
