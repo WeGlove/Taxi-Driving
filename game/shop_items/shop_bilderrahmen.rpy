@@ -24,7 +24,7 @@ label shop_bilderrahmen:
                 shopkeep "Nur weil ich nicht verstehe {i} warum {\i} Leute etwas kaufen, verstehe ich trotzdem  dass sie es kaufen"
                 shopkeep "Und die Nachfrage ist gerade sehr hoch. Ich glaube, der Preis hier wäre sogar zu niedrig "
                 $game.options[item_ID][0] = True
-                $game.price[item_ID] += 2*base_fare
+                $game.price[item_ID] += item_base_cost * 0.5
             "Bitte. {i}für  Mich{\i}" if game.options[item_ID][0]:
                 shopkeep "Für dich? Dann verdopple ich den Preis eher noch. Hey... Mach doch nicht so nen Hundeblick. Na gut, dann erhöh ich den Preis eben nicht."
                 
@@ -32,12 +32,12 @@ label shop_bilderrahmen:
             "Ich habe auf der Fahrt gehört, dass Bilderrahmen eine Blase sind, die bald platzen wird." if not game.options[item_ID][1]:
                 shopkeep "Blödsinn! Wobei. Du kommst wirklich rum in deinem Taxi. Ich geb ihn dir etwas billiger"
                 $game.options[item_ID][1] = True
-                $game.price[item_ID] -= 2*game.base_fare
+                $game.price[item_ID] -= item_base_cost * 0.5
             "Bist du dir sicher dass du dafür überhaupt noch Abnehmer findest? Der Markt an Bilderrahmen ist ja ziemlich gesättigt" if game.options[item_ID][1]:
                 shopkeep"Ok. Jetzt verarschst du mich aber. Über's Ohr hauen lass' ich mich nicht. Du bezahlst den vollen Preis"
                 
                 
-                $game.price[item_ID] += 2* game.base_fare
+                $game.price[item_ID] += item_base_cost * 0.5
             "Den momentanen Preis akzeptieren" if game.options[item_ID][1]:
                     $game.money -= game.price[item_ID]
                     $game.upgrades[item_ID] = True

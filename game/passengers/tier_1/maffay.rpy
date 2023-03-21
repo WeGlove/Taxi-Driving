@@ -1,7 +1,7 @@
 ﻿define maffay = Character("Keine Ahnung")
 
 label maffay:
-     $current_passenger.paying = game.base_fare
+    $current_passenger.paying = game.base_fare
     "Eine Frau mit rot geränderten Augen steigt in dein Taxi."
     maffay "Alter, ich bin grade so high, fahr mich einfach irgendwo hin"
     menu:
