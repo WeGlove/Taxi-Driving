@@ -22,8 +22,8 @@
             $ game.add_money(crypto_money)
 
             "Du erhälst extra Einnahmen in Höhe von [crypto_money] CRP durch Crypto Mining!"
-            "{i}\U+266A Crypto Mining!\U+266A{/i}"
-            "{i}\U+266A Machen auch Sie ihr Strom zu Geld!\U+266A {/i}"
+            "{i}♫ Crypto Mining! ♫{/i}"
+            "{i}♫ Machen auch Sie ihr Strom zu Geld! ♫{/i}"
 
         jump gameloop
     label out:
