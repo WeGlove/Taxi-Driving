@@ -15,12 +15,13 @@
         hide taxi_inner
         with Dissolve(0.5)
             
-        
         $ acquired_money = game.pay_passenger()
         "Du hast [acquired_money] CRP verdient!"
         if game.upgrades["Crypto Mining"]:
-            $ game.add_money(game.base_fare/10)
-            "Du erhälst extra Einnahmen in Höhe von [game.get_base_fare()] CRP durch Crypto Mining!"
+            $ crypto_money = game.base_fare/10
+            $ game.add_money(crypto_money)
+
+            "Du erhälst extra Einnahmen in Höhe von [crypto_money] CRP durch Crypto Mining!"
             "{i}\U+266A Crypto Mining!\U+266A{/i}"
             "{i}\U+266A Machen auch Sie ihr Strom zu Geld!\U+266A {/i}"
 
