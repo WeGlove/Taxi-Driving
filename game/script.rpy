@@ -62,7 +62,7 @@ label start:
     show screen MoneyScreen
     show screen InventoryButtonScreen
     
-    play music "audio/driving.wav" loop
+    play music "audio/LearnAbout-Drive.ogg" loop
     
     label day_loop:
         call day from _call_day
