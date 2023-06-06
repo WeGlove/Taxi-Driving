@@ -26,7 +26,7 @@ class Game:
         self.number_of_debt_infractions = 0
         self.events = [] # A list of events that have happened in the game
         
-        self.all_passengers = [Passenger(name, "tier_0") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man", "introvert"]] +\
+        self.all_passengers = [Passenger(name, "tier_0") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man", "introvert", "support"]] +\
                               [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
                               [Passenger(name, "tier_2") for name in ["introvert", "passenger_faustings"]] +\
                               [Passenger(name, "esoteric") for name in ["test", "passenger_fall"]] +\
@@ -183,7 +183,7 @@ class Game:
         """
         if self.current_passenger is not None:
             self.current_passenger.has_driven = True
-        self.current_passenger = random.choice(self.future_passengers_of_today)
+        self.current_passenger = self.future_passengers_of_today[0]
         self.set_event("next_passenger", context={"Next": self.current_passenger.call_label})
         self.future_passengers_of_today.remove(self.current_passenger)
         self.past_passengers_of_today.append(self.current_passenger)
@@ -231,5 +231,5 @@ class Game:
         return acquired_money
     
     def force_character(self, name):
-        set_event("force_char", context={"Name": name})
+        self.set_event("force_char", context={"Name": name})
         self.future_passengers_of_today = [self.get_passenger(name)] + self.future_passengers_of_today

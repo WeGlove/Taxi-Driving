@@ -2,9 +2,6 @@
 
 label maffay:
 
-
-
-
     $current_passenger.paying = game.get_base_fare()
 
 
