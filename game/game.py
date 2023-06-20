@@ -30,7 +30,7 @@ class Game:
                               [Passenger(name, "tier_-1") for name in []] +\
                               [Passenger(name, "tier_0") for name in ["passenger_failed_inventor", "hero",  "passenger_happy_man", "introvert", "support"]] +\
                               [Passenger(name, "tier_1") for name in ["baby", "mime", "maffay", "gameshow", "zeuge", "captain", "clown", "dance", "bobby", "bfj"]] +\
-                              [Passenger(name, "tier_2") for name in ["introvert", "passenger_faustings"]] +\
+                              [Passenger(name, "tier_2") for name in ["introvert", "passenger_faustings", "gottschalk"]] +\
                               [Passenger(name, "tier_3") for name in []] +\
                               [Passenger(name, "esoteric") for name in ["test", "passenger_fall"]] +\
                               [Passenger(name, "debts") for name in ["passenger_debts"]] +\
