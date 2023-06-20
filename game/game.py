@@ -131,10 +131,33 @@ class Game:
         """
             Creates a list of passengers for the current day.
         """
+
+        # Tier -2: 4 - Wir haben 0
+        # Tier -1: 4 - Wir haben 0
+        # Tier 0:  5 - Wir haben 5  - Done
+        # Tier 1: 13 - Wir haben 10
+        # Tier 2: 8 - Wir haben 2
+        # Tier 3: 6 - Wir haben 0
+        # Mayor: 1  - Wir haben 0
+
+        ## Early Game / Tutorial
         if self.current_day == 0:
             return self.draw_from_pool(7, self.pools["tier_1"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
         elif self.current_day == 1:
-            return self.draw_from_pool(3, self.pools["tier_1"]) + self.draw_from_pool(2, self.pools["tier_0"]) + self.draw_from_pool(1, self.pools["tier_2"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
+            return self.draw_from_pool(3, self.pools["tier_1"]) + self.draw_from_pool(2, self.pools["tier_0"]) + self.draw_from_pool(2, self.pools["tier_2"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
+        ## Mid Game SubStory
+        elif self.current_day == 2:
+            return self.draw_from_pool(1, self.pools["tier_-1"]) + self.draw_from_pool(1, self.pools["tier_0"]) + self.draw_from_pool(2, self.pools["tier_1"]) + self.draw_from_pool(3, self.pools["tier_2"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
+        elif self.current_day == 3:
+            return self.draw_from_pool(2, self.pools["tier_-1"]) + self.draw_from_pool(1, self.pools["tier_0"]) + self.draw_from_pool(1, self.pools["tier_1"]) + self.draw_from_pool(2, self.pools["tier_2"]) + self.draw_from_pool(1, self.pools["tier_3"]) + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
+        ## End Game Story
+        elif self.current_day == 4:
+            return self.draw_from_pool(1, self.pools["tier_-2"]) + self.draw_from_pool(1, self.pools["tier_-1"]) + self.draw_from_pool(1, self.pools["tier_2"]) + self.draw_from_pool(2, self.pools["tier_3"])  + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
+        elif self.current_day == 5:
+            return self.draw_from_pool(3, self.pools["tier_-2"]) + self.draw_from_pool(1, self.pools["tier_0"]) + self.draw_from_pool(3, self.pools["tier_3"])  + self.maybe_draw_from_pool(1, self.pools["esoteric"], 0.01)
+        ## BOSS FIGHT
+        elif self.current_day == 6:
+            return self.draw_from_pool(7, self.pools["mayor"])
         else:
             return []
     
